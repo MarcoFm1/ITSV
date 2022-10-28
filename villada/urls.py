@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from villadApp.views import ITS
+from villadApp.views import ITS, LOGIN
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS)
+    path("villada/", ITS),
+    path('login/', LOGIN)
 ]

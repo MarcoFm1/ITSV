@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def ITS(request):
     return render(request,'../templates/villadApp/main.html')
+
+def LOGIN(request):
+    return render(request,'../templates/villadApp/login.html')
