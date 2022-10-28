@@ -1,3 +1,4 @@
+{% extends "villadApp/base.html" %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,15 +11,28 @@
     <title>Login</title>
 </head>
 <body>
+
+
+
+{% block title %}
+    Pagina Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{%static '/css/login.css'%}">
+{% endblock %}
+
+{% block content %}
     <div class="div_main">
         <div class="div_header">
-            <div class="div_logo">
-
-            </div>
-            <div class="div_title">
-                <h1 class="h1_title">LOGIN BRO</h1>
+            <div class="conteiner">
+                <div class="div_img_villada">
+                    <img src="{%static '/src/villadalogo.png'%}" alt="" class="img_villada">
+                </div>
+                <div class="div_title">
+                    <h1 class="h1_title">LOGIN</h1>
+                </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

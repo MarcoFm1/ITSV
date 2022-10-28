@@ -1,0 +1,26 @@
+.conteiner{
+    box-shadow: 7px 7px 23px 0px rgba(117,117,117,0.75);
+    -webkit-box-shadow: 7px 7px 23px 0px rgba(117,117,117,0.75);
+    -moz-box-shadow: 7px 7px 23px 0px rgba(117,117,117,0.75);
+
+    width: 50%;
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.div_title{
+    justify-content: center;
+}
+
+.h1_title{
+    color: rgb(0, 0, 128);
+}
+
+.div_img_villada{
+
+}
+
+.img_villada{
+    
+}
