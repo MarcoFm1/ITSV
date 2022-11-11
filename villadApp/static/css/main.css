@@ -1,7 +1,43 @@
 body{
     background-color: rgb(255, 255, 255);
-    font-family: sans-serif;
+    font-family: 'Poppins',sans-serif;
     margin: 0;
+}
+
+.superior{
+  display: flex;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(
+      to bottom,
+      rgba(11, 0, 114, 0.6),
+      rgba(179, 0, 196, 0.6)
+  ),
+  url(../src/villadaFachada.jpg);
+  background-size: cover;
+  background-position: center center;
+  clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 80%,
+      50% 100%,
+      0 80%
+  );
+  position: relative;
+}
+
+.superior-titulo{
+  display: block;
+  width: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .container{
@@ -35,19 +71,24 @@ body{
     margin-top: 50px;
 }
 
+
 /*
 .titulo{
     text-align: left; 
-font-family: Arial Black; 
-font-weight: bold; 
-font-size: 30px; 
-color: rgb(0, 0, 0); 
-text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
+  font-family: Arial Black; 
+  font-weight: bold; 
+  font-size: 30px; 
+  color: rgb(0, 0, 0); 
+  text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
 }
+
 */
 
+
+/*
+
 .titulo {
-    color: rgb(0, 0, 0);  /*Color letras de fondo*/
+    color: rgb(0, 0, 0);  Color letras de fondo
     font-size: 50px;
     position: relative;
     width: 80%;
@@ -219,7 +260,7 @@ text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #ac
     margin-right: 70px;
 }
 
-/* RESPONSIVE ------------------------------------------------------- */
+/* RESPONSIVE ------------------------------------------------------- 
 @media(max-width: 1050px){
     .logo{
         width: 300px;
@@ -352,3 +393,5 @@ text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #ac
         animation: none;
     }
 }
+
+*/
