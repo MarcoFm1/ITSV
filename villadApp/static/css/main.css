@@ -66,6 +66,7 @@ font-weight: bold;
   margin-left: 70px;
   width: 400px;
   height: 400px;
+
   box-shadow: 0px 0px 5px 3px rgba(2, 0, 100, 0.49);
   -webkit-box-shadow: 0px 0px 5px 3px rgba(2, 0, 100, 0.49);
   -moz-box-shadow: 0px 0px 5px 3px rgba(2, 0, 100, 0.49);
@@ -89,15 +90,15 @@ font-weight: bold;
 
 
 .pagina{
-display: flex;
-flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .pagina-imagen{
-width: 50%;
-display: flex;
-justify-content: center;
-margin-top: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .imagen{
@@ -136,14 +137,7 @@ margin-top: 50px;
 
 
 
-
-
-
-
-
-
-
-
+/* RESPONSIVE ------------------------------------------------------------------------------------------- */
 
 @media(max-width: 1050px){
   .logo, .imagen{
