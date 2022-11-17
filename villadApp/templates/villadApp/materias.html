@@ -1,0 +1,28 @@
+{% extends "villadApp/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Pagina Vishada
+{% endblock %}
+    
+{% block head %}
+<link rel="stylesheet" href="{%static '/css/materias.css'%}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="header">
+        <h1 class="titulo" id="titulo"> MATERIA </h1>
+        <div class="parrafo-main">
+            <p class="parrafo" id="parrafo"> Esta es la explicacion de la materia jaja tengo que rellenar saludos no se si lees esto veni y 
+            contame tu vida por cierto fini trolo
+            </p>
+        </div>
+        
+        <button id="boton" onclick="animacion()">+ INFO</button>
+    </div>
+
+    </div>
+    <script src="{%static '/js/materias.js'%}"></script>
+{% endblock %}

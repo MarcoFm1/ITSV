@@ -8,3 +8,6 @@ def ITS(request):
 
 def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
+
+def MATERIAS(request):
+    return render(request,'../templates/villadApp/materias.html')

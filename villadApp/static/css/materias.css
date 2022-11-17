@@ -1,0 +1,178 @@
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 82vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 0, 107, 0.6),
+        rgba(11, 0, 107, 0.6)
+    ),
+    url(../src/random.jpeg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    }
+    
+    .header h1{
+    display: block;
+    width: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 43%;
+    left: 50%;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    font-weight: bold;
+    
+    }
+    .parrafo-main{
+        position: absolute;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        top: 30%;
+    }
+    .parrafo{
+        display: block;
+        position: relative;
+        top: 43%;
+        text-align: center;
+        color: #ffffff;
+        font-size: 1px;
+        opacity: 0.0;
+        margin: 0px 20%;
+    }
+
+    .header button{
+        display: block;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 57%;
+        left: 50%;
+        text-align: center;
+        color: #ffffff;
+        background: none;
+        border: solid 1px white;
+        font-weight: bold;
+    }
+
+    .header button:hover{
+        background-color: white;
+        color: black;
+    }
+
+
+/* CLASE DE LAS ANIMACIONES */
+.animacionTituloIda{
+    animation: tituloIda 1.5s ease-in;
+}
+.animacionTituloVuelta{
+    animation: tituloVuelta 1.5s ease-in;
+}
+
+.opacidadParrafoIda{
+    animation: parrafoIda 1.5s ease-in;
+}
+
+.opacidadParrafoVuelta{
+    animation: parrafoVuelta 1.5s ease-in;
+}
+
+.animacionBotonIda{
+    animation: botonIda 1.5s ease-in;
+}
+
+.animacionBotonVuelta{
+    animation: botonVuelta 1.5s ease-in;
+}
+
+
+/* ANIMATIONS */
+@keyframes tituloIda {
+    0%   {
+        
+        top: 43%;
+        left: 50%;
+        font-size: 40px;   
+    }
+    100% {
+        
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+}
+@keyframes tituloVuelta {
+    0% {
+        
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+    100%   {
+        
+        top: 43%;
+        left: 50%;
+        font-size: 40px;   
+    }
+}
+
+
+@keyframes parrafoIda {
+    0%   {
+        opacity: 0.0;
+        font-size: 1px;
+        
+    }
+    100% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+}
+
+
+@keyframes parrafoVuelta {
+    0% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+    100%   {
+        opacity: 0.0;
+        font-size: 1px;
+        
+    }
+}
+
+
+
+@keyframes botonIda {
+    0%   {
+        top: 57%;
+    }
+    100% {
+        top: 85%
+    }
+}
+
+
+@keyframes botonVuelta {
+    0% {
+        top: 85%
+    }
+    100%   {
+        top: 57%;
+    }
+}
+
