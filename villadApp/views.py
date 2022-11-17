@@ -9,5 +9,9 @@ def ITS(request):
 def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
 
-def PROFILE(request):
+def PROFILE(request,tipo,nombre):
+    if tipo == 'estudiante':
+        print('ESTUDIA DJANGO NOOOOOOOOOOOOOOOOOOOOOO')
+    else:
+        print('SE RASCA LOS HUEVOS')
     return render(request,'../templates/villadApp/profile.html')
