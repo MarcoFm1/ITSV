@@ -3,19 +3,19 @@ from django.db import models
 
 # Create your models here.
 # COSAS PARA MARTA LA SECRETARIA DE 150 AÑOS
-class Anios(models.Model):
+class Anio(models.Model):
     anio = models.IntegerField(db_column='ANIO', max_length=1)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return str(self.anio)
 
-class Divisiones(models.Model):
+class Division(models.Model):
     division = models.CharField(db_column='DIVISION', max_length=1)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return self.division
 
-class Especialidades(models.Model):
+class Especialidade(models.Model):
     especialidad = models.CharField(db_column='ESPECIALIDADES', max_length=30)  # Field name made lowercase.
 
     def __str__(self) -> str:
@@ -27,7 +27,7 @@ class DiasSemana(models.Model):
     def __str__(self) -> str:
         return self.dia
 # Persona
-class Personas(models.Model):
+class Persona(models.Model):
     dni = models.CharField(db_column='DNI TUTOR', max_length=7)  # Field name made lowercase.
     nombre = models.CharField(db_column='NOMBRE TUTOR', max_length=30, blank=True, null=True)  # Field name made lowercase.
     apellido = models.CharField(db_column='APELLIDO TUTOR', max_length=30, blank=True, null=True)  # Field name made lowercase.
@@ -37,50 +37,65 @@ class Personas(models.Model):
     def __str__(self) -> str:
         return self.nombre
 # Materias
-class Materias(models.Model):
+class Modulo(models.Model):
+    hora_inicio = models.TimeField(db_column='HORA INICIO')  # Field name made lowercase.
+    hora_final = models.TimeField(db_column='HORA FINAL')  # Field name made lowercase.CASCADE
+    orden = models.IntegerField(db_column='ANIO', max_length=2)  # Field name made lowercase.
+    def __str__(self) -> str:
+        return f"{self.orden}: {self.hora_inicio}, {self.hora_final}"
+
+class Materia(models.Model):
     nombre = models.CharField(db_column='NOMBRE', max_length=35, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='DESCRIPCION', max_length=150, blank=True, null=True)  # Field name made lowercase.
     objetivos = models.CharField(db_column='OBJETIVOS', max_length=150, blank=True, null=True)  # Field name made lowercase.
     contenidos = models.CharField(db_column='CONTENIDOS', max_length=150, blank=True, null=True)  # Field name made lowercase.
+    modulo = models.ForeignKey(Modulo, models.DO_NOTHING, db_column='DIVISION', blank=True, null=True)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return self.nombre
 
-class HorariosMaterias(models.Model):
-    hora_inicio = models.TimeField(db_column='HORA INICIO')  # Field name made lowercase.
-    hora_final = models.TimeField(db_column='HORA FINAL')  # Field name made lowercase.CASCADE
-    materia = models.ForeignKey(Materias, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
+class HorariosMateria(models.Model):
+    materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return f'{self.materia} {self.hora_inicio} {self.hora_final}'
 
 # Curso
 
-class Cursos(models.Model):  
+class Curso(models.Model):  
     anio_creacion = models.DateField(db_column='CREACION_HORARIO')
-    anio = models.ForeignKey(Anios, models.DO_NOTHING, db_column='ANIO', blank=True, null=True)  # Field name made lowercase.
-    division = models.ForeignKey(Divisiones, models.DO_NOTHING, db_column='DIVISION', blank=True, null=True)  # Field name made lowercase.
-    especialidad = models.ForeignKey(Especialidades, models.DO_NOTHING, db_column='ESPECIALIDAD', blank=True, null=True)  # Field name made lowercase.
+    anio = models.ForeignKey(Anio, models.DO_NOTHING, db_column='ANIO', blank=True, null=True)  # Field name made lowercase.
+    division = models.ForeignKey(Division, models.DO_NOTHING, db_column='DIVISION', blank=True, null=True)  # Field name made lowercase.
+    especialidad = models.ForeignKey(Especialidade, models.DO_NOTHING, db_column='ESPECIALIDAD', blank=True, null=True)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return f'{self.anio} ° {self.division}'
 
 
-class MateriasXCursos(models.Model):
+class MateriaXCurso(models.Model):
     anio_creacion = models.DateField(db_column='CREACION_HORARIO')
-    materia = models.ForeignKey(Materias, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
-    curso = models.ForeignKey(Cursos, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
+    materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
+    curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
     
     def __str__(self) -> str:
         return f'{self.curso} {self.materia.nombre}'
 
-class CronogramaCursos(models.Model):
+class CronogramaCurso(models.Model):
     anio_creacion = models.DateField(db_column='CREACION_HORARIO')
     dia = models.ForeignKey(DiasSemana, models.DO_NOTHING, db_column='DIA', blank=True, null=True)
-    curso = models.ForeignKey(Cursos, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
-    horarios_materia = models.ForeignKey(HorariosMaterias, models.DO_NOTHING, db_column='HORARIO_MATERIA', blank=True, null=True)
+    curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
+    horarios_materia = models.ForeignKey(HorariosMateria, models.DO_NOTHING, db_column='HORARIO_MATERIA', blank=True, null=True)
 
     def __str__(self) -> str:
         return f'{self.curso} {self.dia}'
 
 # alumno
+class Alumno(Persona):
+    
+    curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
+    tutor = models.ForeignKey(Persona, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
+    def __str__(self) -> str:
+        return f'{self.materia} {self.hora_inicio} {self.hora_final}'
+
+    def __init__(self):
+        super().__init__()
