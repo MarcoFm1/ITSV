@@ -1,10 +1,11 @@
+
 .div_prin{
 	justify-content: center;
 	align-items: center;
 	margin: auto;
 	width: 3%;
 	border-radius: 15px;
-	border: 3px solid black;
+
 	padding: 30px;
 	margin-top: 22px;
 }
