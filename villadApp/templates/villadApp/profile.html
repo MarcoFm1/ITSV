@@ -12,12 +12,11 @@
 
 {% block content %}
 <div class="content">
-    
     <div class="principal-main">
         <div class="principal-profile">
             <img src="{%static '/src/logo_profile.png'%}" alt="">
             <div class="principal-profile-info">
-                <h1>{{"El Perro Piola"}}</h1>
+                <h1>{{nombre}}</h1>
                 <h3>{{"4to D - Cheff"}}</h3>
                 <h3>{{"Mascota"}}</h3>
             </div>
@@ -126,12 +125,16 @@
     </div>
 
     <div class="registro-faltas">
+        <h1>Faltas Del Alumno</h1>
         <div class="falta">
-            <h1>a</h1>
-            <h2>e</h2>
+            <h2>{{ 'Materia' }}</h2>
+            <h2>{{ 'Dia-Horario' }}</h2>
+            <h2>{{ 'CantFalta' }}</h2>
         </div>
         <div class="falta">
-            <h1>a</h1>
+            <h2>{{ 'Materia' }}</h2>
+            <h2>{{ 'Dia-Horario' }}</h2>
+            <h2>{{ 'CantFalta' }}</h2>
         </div>
     </div>
 
