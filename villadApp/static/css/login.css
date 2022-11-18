@@ -7,9 +7,11 @@
     box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
     -webkit-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
     -moz-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    
+    margin-top: 170px;
 	padding: 30px;
-	margin-top: 22px;
+    opacity: 1;
+    z-index: 0;
+	
 }
 
 .div_containt{
@@ -18,6 +20,7 @@
 }
 
 /*ADAPTACION PANTALLA*/
+
 
 @media only screen and (max-width: 480px){
 	.div_prin{	
@@ -43,7 +46,7 @@
 
 @media only screen and (min-width: 1201px){
 	.div_prin{
-		width: 29%;
+		width: 26%;
 	}
 }
 
@@ -55,6 +58,7 @@
 
 
 /*Texto Email/password*/
+
 
 
 :after {
@@ -94,7 +98,7 @@
     text-align: center;
     letter-spacing: 1px;
     padding-bottom: 20px;
-    padding-top: 15px;
+    padding-top: 10px;
 
 }
 
@@ -105,6 +109,17 @@ h2 {
     font-weight: 400;
     color: #e7e7e7;
 }
+
+.div_dont{
+    font-size: 10px;
+    height: 20px;
+    width: 100px;
+    margin-left: 70%;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
 .log {
     display: block;
     margin-bottom: 10px;
@@ -160,7 +175,6 @@ label {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 20px;
   border: grey 0.1px solid;
 }
 
@@ -174,4 +188,215 @@ label {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
+}
+
+
+
+.div_sec{
+    background: rgb(0, 0, 126);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 3%;
+    border-radius: 15px;
+    box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
+    -moz-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
+    padding: 30px;
+    opacity: 1;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 480px){
+	.div_sec{	
+		width: 85%;	
+	}
+
+	.log{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 830px){
+	.div_sec{
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1200px){
+	.div_sec{
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width: 1201px){
+	.div_sec{
+		width: 26%;
+	}
+}
+
+.btn_reg{
+    background-color: #fff;
+    border: 0 solid #b1d3ff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 8px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border: grey 0.1px solid;
+}
+
+.btn_reg:hover {
+    background-color: #5d81bb;
+    color: #fff;
+  }
+  
+  @media (min-width: 768px) {
+    .btn_reg {
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  .txt_pass2, .txt_email2{
+	margin-top: 5%;
+	margin-left: 10%;
+}
+
+#a_dha{
+    color: rgb(146, 0, 0);
+    font-family: "Segoe UI", sans-serif;
+    background: none;
+    border-color: transparent;
+    cursor: pointer;
+
+}
+
+.txt_reg{
+    font-family: "Segoe UI", sans-serif;
+    color:white;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.btn_reg{
+    margin-top: 20px;
+}
+
+
+
+.animacionDivLog{
+    animation: logIda 1.5s ease-in;
+}
+.animacionDivLogVuelta{
+    animation: logVuelta 1.5s ease-in;
+}
+
+.animacionDivReg{
+    animation: regIda 1.5s ease-in;
+}
+
+.animacionDivRegVuelta{
+    animation: regVuelta 1s ease-in;
+}
+
+.animacionBotonIda{
+    animation: botonIda 1.5s ease-in;
+}
+
+.animacionBotonVuelta{
+    animation: botonVuelta 1.5s ease-in;
+}
+
+
+/* ANIMATIONS */
+@keyframes animacionDivLog {
+    0%   {
+
+        top: 43%;
+        left: 50%;
+        font-size: 40px;
+    }
+    100% {
+
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+}
+@keyframes animacionDivLogVuelta {
+    0% {
+
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+    100%   {
+
+        top: 43%;
+        left: 50%;
+        font-size: 40px;
+    }
+}
+
+
+@keyframes animacionDivReg {
+    0%   {
+        opacity: 0.0;
+        font-size: 1px;
+
+    }
+    100% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+}
+
+
+@keyframes animacionDivRegVuelta {
+    0% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+    100%   {
+        opacity: 0.0;
+        font-size: 1px;
+
+    }
+}
+
+
+
+@keyframes botonIda {
+    0%   {
+        top: 57%;
+    }
+    100% {
+        top: 85%
+    }
+}
+
+
+@keyframes botonVuelta {
+    0% {
+        top: 85%
+    }
+    100%   {
+        top: 57%;
+    }
 }
