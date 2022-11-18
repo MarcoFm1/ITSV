@@ -87,7 +87,7 @@ body{
 }
 
 .opacidadParrafoVuelta{
-    animation: parrafoVuelta 1.5s ease-in;
+    animation: parrafoVuelta 1s ease-in;
 }
 
 .animacionBotonIda{
