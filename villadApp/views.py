@@ -11,3 +11,6 @@ def LOGIN(request):
 
 def MATERIAS(request):
     return render(request,'../templates/villadApp/materias.html')
+
+def CURSOS(request):
+    return render(request,'../templates/villadApp/cursos.html')
