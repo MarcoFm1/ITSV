@@ -10,4 +10,6 @@ def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
 
 def MATERIAS(request):
-    return render(request,'../templates/villadApp/materias.html')
+    materia = 'Programacion' #ACA VIENE UNA QUERY
+    response = {'nombre_materia':materia}
+    return render(request,'../templates/villadApp/materias.html',response)
