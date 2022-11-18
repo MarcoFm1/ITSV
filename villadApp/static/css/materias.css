@@ -76,26 +76,26 @@ body{
 
 /* CLASE DE LAS ANIMACIONES */
 .animacionTituloIda{
-    animation: tituloIda 5s ease-in;
+    animation: tituloIda 1.5s ease-in;
 }
 .animacionTituloVuelta{
-    animation: tituloVuelta 5s ease-in;
+    animation: tituloVuelta 1s ease-in;
 }
 
 .opacidadParrafoIda{
-    animation: parrafoIda 1s ease-in;
+    animation: parrafoIda 2s ease-in;
 }
 
 .opacidadParrafoVuelta{
-    animation: parrafoVuelta 1s ease-in;
+    animation: parrafoVuelta 0.5s ease-in;
 }
 
 .animacionBotonIda{
-    animation: botonIda 2s ease-in;
+    animation: botonIda 1.5s ease-in;
 }
 
 .animacionBotonVuelta{
-    animation: botonVuelta 2s ease-in;
+    animation: botonVuelta 1s ease-in;
 }
 
 
