@@ -16,24 +16,31 @@
     {% endblock %}
 </head>
 <body>
-    <div class="navbar">   
-        <ul>
-            <li><a href="">Ruta</a></li>
-            <li><a href="">FeedBack</a></li>
-            <li><a href="">Puntos</a></li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Cuenta</a>
-              <div class="dropdown-content">
-                <a href="">Tu Perfil</a>
-                <a href="">Cerrar Sesion</a>
-              </div>
-            </li>
+  <header class="header">
+      <nav class="navbar">
+          <a href="#" class="nav-logo">WebDev.</a>
+          <ul class="nav-menu">
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Services</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">Contact</a>
+              </li>
           </ul>
-    </div>
-      
-    <div class="main">
-        <p>Some text some text some text some</p>
-    </div>
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+      </nav>
+  </header>
+  
 
     
 
@@ -45,5 +52,6 @@
     <footer class="footer">
         <h3>Copyright © 2022</h3>
     </footer>
+    <script src="{%static '/js/base_js.js'%}"></script>
 </body>
 </html>
