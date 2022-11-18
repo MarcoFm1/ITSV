@@ -101,3 +101,18 @@ class RelacionAT(models.Model):
     alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='ALUMNO', blank=True, null=True)  # Field name made lowercase.
     class Meta(Persona.Meta):
         pass
+#falta
+class Asistencia(models.Model):
+    alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='ALUMNO', blank=True, null=True)  # Field name made lowercase.
+    materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)
+    dia = models.DateField(db_column='DIA')
+    class Meta(Persona.Meta):
+        pass
+
+class Falta(models.Model):
+    alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='ALUMNO', blank=True, null=True)  # Field name made lowercase.
+    materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)
+    dia = models.DateField(db_column='DIA_FALTA')
+    hora_llegada = models.TimeField(db_column='HORA_LLEGADA')
+    class Meta(Persona.Meta):
+        pass

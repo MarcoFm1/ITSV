@@ -13,7 +13,6 @@ admin.site.register(Modulo)
 admin.site.register(Curso)
 admin.site.register(MateriaXCurso)
 admin.site.register(CronogramaCurso)
-
-
-
-
+admin.site.register(RelacionAT)
+admin.site.register(Falta)
+admin.site.register(Asistencia)
