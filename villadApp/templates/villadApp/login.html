@@ -25,7 +25,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="div_prin">
+<div class="div_prin" id="div_prin">
 	<div class="div_containt">
 		<div class="div_img">
 			<img src='/static/src/villadalogo.png' alt="" class="img_villada">
@@ -42,7 +42,7 @@
 				<label for="password" class="txt_pass">Put your Password</label>
 				<input type="password" id="password" placeholder="Password">
 				<div class="div_dont">
-					<button id="a_dha" onclick="">Don't you have an account?</button>
+					<button id="btn_dha" onclick="register()">Don't you have an account?</button>
 				  </div>
 			  </div>
 			  <button class="btn_log" role="button" id="btn_log">LOG IN</button>
@@ -52,7 +52,7 @@
 </div>
 
 
-<div class="div_sec">
+<div class="div_sec" id="div_sec">
 	<div class="div_containt2">
 			<div class="txt_reg">
 				<h1 class="txt_reg">Register</h1>
@@ -70,7 +70,7 @@
 				<input type="password" id="password3" placeholder="Password">
 			</div>	
 			</div>
-			  <button class="btn_reg" role="button" id="btn_reg" onclick="">READY!</button>
+			  <button class="btn_reg" role="button" id="btn_reg" onclick="login()">READY!</button>
 		</div>
 </div>
 <script src="{%static '/js/login.js'%}"></script>

@@ -1,16 +1,18 @@
 .div_prin{
+    position: absolute;
 	justify-content: center;
 	align-items: center;
-	margin: auto;
 	width: 3%;
 	border-radius: 15px;
     box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
     -webkit-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
     -moz-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    margin-top: 170px;
+    margin-top: 50px;
 	padding: 30px;
     opacity: 1;
-    z-index: 0;
+    z-index: 1;
+    margin-left: 37%;
+    background: white;
 	
 }
 
@@ -193,18 +195,19 @@ label {
 
 
 .div_sec{
+    position: absolute;
     background: rgb(0, 0, 126);
     justify-content: center;
     align-items: center;
     margin: auto;
     width: 3%;
     border-radius: 15px;
-    box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    -webkit-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    -moz-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
     padding: 30px;
-    opacity: 1;
-    z-index: 1;
+    opacity: 0;
+    z-index: 0;
+    margin-left: 37%;
+    margin-top: 50px;
+
 }
 
 @media only screen and (max-width: 480px){
@@ -276,7 +279,7 @@ label {
 	margin-left: 10%;
 }
 
-#a_dha{
+#btn_dha{
     color: rgb(146, 0, 0);
     font-family: "Segoe UI", sans-serif;
     background: none;
@@ -315,88 +318,44 @@ label {
     animation: regVuelta 1s ease-in;
 }
 
-.animacionBotonIda{
-    animation: botonIda 1.5s ease-in;
-}
-
-.animacionBotonVuelta{
-    animation: botonVuelta 1.5s ease-in;
-}
-
 
 /* ANIMATIONS */
-@keyframes animacionDivLog {
+@keyframes logIda {
     0%   {
-
-        top: 43%;
-        left: 50%;
-        font-size: 40px;
+        opacity: 1;
     }
     100% {
-
-        top: 5%;
-        left: 10%;
-        font-size: 20px;
+        opacity: 0;
     }
 }
-@keyframes animacionDivLogVuelta {
+@keyframes logVuelta {
     0% {
-
-        top: 5%;
-        left: 10%;
-        font-size: 20px;
+        opacity: 0;
     }
     100%   {
 
-        top: 43%;
-        left: 50%;
-        font-size: 40px;
+        opacity: 1;
     }
 }
 
 
-@keyframes animacionDivReg {
+@keyframes regIda {
     0%   {
-        opacity: 0.0;
-        font-size: 1px;
+        opacity: 0;
 
     }
     100% {
         opacity: 1.0;
-        font-size: 30px;
     }
 }
 
-
-@keyframes animacionDivRegVuelta {
-    0% {
-        opacity: 1.0;
-        font-size: 30px;
-    }
-    100%   {
-        opacity: 0.0;
-        font-size: 1px;
-
-    }
-}
-
-
-
-@keyframes botonIda {
+@keyframes regVuelta {
     0%   {
-        top: 57%;
+        opacity: 1;
+    
     }
     100% {
-        top: 85%
+        opacity: 0;
     }
 }
 
-
-@keyframes botonVuelta {
-    0% {
-        top: 85%
-    }
-    100%   {
-        top: 57%;
-    }
-}
