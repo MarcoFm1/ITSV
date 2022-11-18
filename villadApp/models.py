@@ -151,3 +151,4 @@ class Falta(models.Model):
 
     def __str__(self) -> str:
         return f'dia: {self.dia} alumno: {self.alumno} materia: {self.materia} llego?: {self.llegada} hora llegada: {self.hora_llegada}'
+#try
