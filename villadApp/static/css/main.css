@@ -26,6 +26,17 @@ clip-path: polygon(
 position: relative;
 }
 
+
+.diaNoche{
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+}
+
+
+
 .superior-titulo{
 display: block;
 width: 100%;
