@@ -1,5 +1,4 @@
 .div_prin{
-    position: absolute;
 	justify-content: center;
 	align-items: center;
 	width: 3%;
@@ -11,14 +10,16 @@
 	padding: 30px;
     opacity: 1;
     z-index: 1;
-    margin-left: 37%;
     background: white;
+    margin-left: 37%;
+
 	
 }
 
 .div_containt{
 	justify-content: center;
 	align-items: center;
+    
 }
 
 /*ADAPTACION PANTALLA*/
@@ -195,19 +196,8 @@ label {
 
 
 .div_sec{
-    position: absolute;
-    background: rgb(0, 0, 126);
-    justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 3%;
-    border-radius: 15px;
-    padding: 30px;
-    opacity: 0;
-    z-index: 0;
-    margin-left: 37%;
-    margin-top: 50px;
-
+    justify-content: center;
 }
 
 @media only screen and (max-width: 480px){
@@ -302,60 +292,15 @@ label {
 }
 
 
-
-.animacionDivLog{
-    animation: logIda 1.5s ease-in;
-}
-.animacionDivLogVuelta{
-    animation: logVuelta 1.5s ease-in;
+.div_containt2{
+    align-items: center;
+    justify-content: center ;
 }
 
-.animacionDivReg{
-    animation: regIda 1.5s ease-in;
-}
+#dni{
+    padding-right: 20%;
+    margin-left: 33%;
+    padding: 10px;
 
-.animacionDivRegVuelta{
-    animation: regVuelta 1s ease-in;
-}
-
-
-/* ANIMATIONS */
-@keyframes logIda {
-    0%   {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@keyframes logVuelta {
-    0% {
-        opacity: 0;
-    }
-    100%   {
-
-        opacity: 1;
-    }
-}
-
-
-@keyframes regIda {
-    0%   {
-        opacity: 0;
-
-    }
-    100% {
-        opacity: 1.0;
-    }
-}
-
-@keyframes regVuelta {
-    0%   {
-        opacity: 1;
-    
-    }
-    100% {
-        opacity: 0;
-    }
 }
 

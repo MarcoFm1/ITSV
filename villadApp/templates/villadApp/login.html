@@ -42,7 +42,7 @@
 				<label for="password" class="txt_pass">Put your Password</label>
 				<input type="password" id="password" placeholder="Password">
 				<div class="div_dont">
-					<button id="btn_dha" onclick="register()">Don't you have an account?</button>
+					<button id="btn_dha" onclick="login()">Don't you have an account?</button>
 				  </div>
 			  </div>
 			  <button class="btn_log" role="button" id="btn_log">LOG IN</button>
@@ -69,8 +69,21 @@
 				<label for="password" class="txt_pass2">Repeat the Password</label>
 				<input type="password" id="password3" placeholder="Password">
 			</div>	
+			<div class="log">
+				<label class="txt_email2">Select type of document</label>
+				<select name="Dni" id="dni">
+					<option value="cuil">CUIL</option>
+					<option value="dni">DNI</option>
+					<option value="mercedes">DNIT</option>
+					<option value="audi">PASS (Passport)</option>
+				  </select>
 			</div>
-			  <button class="btn_reg" role="button" id="btn_reg" onclick="login()">READY!</button>
+			<div class="log">
+				<label for="username" class="txt_pass2">Put your document number</label>
+				<input type="text" id="username2" placeholder="Document">
+			</div>
+			</div>
+			  <button class="btn_reg" role="button" id="btn_reg" onclick="register()">READY!</button>
 		</div>
 </div>
 <script src="{%static '/js/login.js'%}"></script>
