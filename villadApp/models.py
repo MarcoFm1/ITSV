@@ -28,15 +28,17 @@ class DiasSemana(models.Model):
         return self.dia
 # persona
 class Persona(models.Model):
-    dni = models.CharField(db_column='DNI TUTOR', max_length=8)  # Field name made lowercase.
-    nombre = models.CharField(db_column='NOMBRE TUTOR', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    apellido = models.CharField(db_column='APELLIDO TUTOR', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    telefono = models.CharField(db_column='TELEFONO TUTOR', max_length=10, blank=True, null=True)  # Field name made lowercase.
-    email = models.CharField(db_column='EMAIL TUTOR', max_length=150, blank=True, null=True)  # Field name made lowercase.
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
+    dni = models.CharField(db_column='DNI', max_length=8)  # Field name made lowercase.
+    nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    apellido = models.CharField(db_column='APELLIDO', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    telefono = models.CharField(db_column='TELEFONO', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    email = models.CharField(db_column='EMAIL', max_length=150, blank=True, null=True)  # Field name made lowercase.
     class Meta:
         abstract = True
 # clase para materias
 class Modulo(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     hora_inicio = models.TimeField(db_column='HORA INICIO')  # Field name made lowercase.
     hora_final = models.TimeField(db_column='HORA FINAL')  # Field name made lowercase.CASCADE
     orden = models.IntegerField(db_column='ORDEN')  # Field name made lowercase.
@@ -44,6 +46,7 @@ class Modulo(models.Model):
         return f"{self.orden}: {self.hora_inicio}, {self.hora_final}"
 
 class Materia(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     nombre = models.CharField(db_column='NOMBRE', max_length=35, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='DESCRIPCION', max_length=250, blank=True, null=True)  # Field name made lowercase.
     objetivos = models.CharField(db_column='OBJETIVOS', max_length=250, blank=True, null=True)  # Field name made lowercase.
@@ -52,6 +55,7 @@ class Materia(models.Model):
         return self.nombre
 
 class ContenidosMateria(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     nombre = models.CharField(db_column='OBJETIVOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='CONTENIDOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
@@ -61,7 +65,8 @@ class ContenidosMateria(models.Model):
 
 # clase para cursos
 
-class Curso(models.Model):  
+class Curso(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     anio = models.ForeignKey(Anio, models.DO_NOTHING, db_column='ANIO', blank=True, null=True)  # Field name made lowercase.
     division = models.ForeignKey(Division, models.DO_NOTHING, db_column='DIVISION', blank=True, null=True)  # Field name made lowercase.
     especialidad = models.ForeignKey(Especialidad, models.DO_NOTHING, db_column='ESPECIALIDAD', blank=True, null=True)  # Field name made lowercase.
@@ -99,6 +104,18 @@ class Temario(models.Model):
     def __str__(self) -> str:
         return f'{self.curso.anio} ° {self.curso.division}: {self.materia}'
 # PERSONAS DESTACADAS
+class Autorizado(models.Model):
+    dni = models.CharField(db_column='DNI', max_length=8)  # Field name made lowercase.
+    def __str__(self) -> str:
+        return f'{self.nombre} {self.apellido}, {self.curso.anio}°{self.curso.division}'
+
+class Profesor(Persona):
+    curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
+    materia = models.ForeignKey(MateriaHorario, models.DO_NOTHING, db_column='MATERIA_ENCARGADA', blank=True, null=True)
+    def __str__(self) -> str:
+        return f'{self.nombre} {self.apellido}, {self.curso.anio}°{self.curso.division}'
+    class Meta(Persona.Meta):
+        pass
 
 class Alumno(Persona):
     curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
@@ -124,6 +141,7 @@ class RelacionAT(models.Model):
         return f'{self.tutores} tutor de: {self.alumno}'
 
 class EncargadoFaltas(Persona):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
     def __str__(self) -> str:
         return f'{self.nombre} {self.apellido}, {self.curso.anio}°{self.curso.division}'
