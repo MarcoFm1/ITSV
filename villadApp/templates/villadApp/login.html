@@ -49,42 +49,47 @@
 			 
 			</div>
 	</div>
+	<div class="div_containt2">
+		<div class="txt_reg">
+			<h1 class="txt_reg">Register</h1>
+		</div>
+	<div class="div_reg_cont">
+		<div class="log">
+			<label for="password" class="txt_pass2">Put a your name</label>
+			<input type="text" class="username2" placeholder="Name">
+		</div>
+		<div class="log">
+			<label for="password" class="txt_pass2">Put a your surname</label>
+			<input type="text" class="username2" placeholder="Surname">
+		</div>
+		<div class="log">
+			<label for="username" class="txt_email2">Put your E-mail</label>
+			<input type="text" class="username2" placeholder="E-mail">
+		  </div>
+		  <div class="log">
+			<label for="password" class="txt_pass2">Put a Password</label>
+			<input type="password" id="password2" placeholder="Password">
+		<div class="log2">
+			<label for="password" class="txt_pass2">Repeat the Password</label>
+			<input type="password" id="password3" placeholder="Password">
+		</div>	
+		<div class="log">
+			<label class="txt_email2">Select your role</label>
+			<select name="Dni" id="dni">
+				<option value="student">STUDENT</option>
+				<option value="tutor">TUTOR</option>
+				<option value="preceptor">PRECEPTOR/TEACHER</option>
+			  </select>
+		</div>
+		<div class="log">
+			<label for="username" class="txt_pass2">Put your document number</label>
+			<input type="text" id="username2" placeholder="Document">
+		</div>
+		</div>
+		<button class="btn_reg">CREATE</button>
+	</div>
 </div>
 
-
-<div class="div_sec" id="div_sec">
-	<div class="div_containt2">
-			<div class="txt_reg">
-				<h1 class="txt_reg">Register</h1>
-			</div>
-		<div class="div_reg_cont">
-			<div class="log">
-				<label for="username" class="txt_email2">Put your E-mail</label>
-				<input type="text" id="username2" placeholder="E-mail">
-			  </div>
-			  <div class="log">
-				<label for="password" class="txt_pass2">Put a Password</label>
-				<input type="password" id="password2" placeholder="Password">
-			<div class="log2">
-				<label for="password" class="txt_pass2">Repeat the Password</label>
-				<input type="password" id="password3" placeholder="Password">
-			</div>	
-			<div class="log">
-				<label class="txt_email2">Select type of document</label>
-				<select name="Dni" id="dni">
-					<option value="cuil">CUIL</option>
-					<option value="dni">DNI</option>
-					<option value="mercedes">DNIT</option>
-					<option value="audi">PASS (Passport)</option>
-				  </select>
-			</div>
-			<div class="log">
-				<label for="username" class="txt_pass2">Put your document number</label>
-				<input type="text" id="username2" placeholder="Document">
-			</div>
-			</div>
-			  <button class="btn_reg" role="button" id="btn_reg" onclick="register()">READY!</button>
-		</div>
 </div>
 <script src="{%static '/js/login.js'%}"></script>
 {% endblock %}

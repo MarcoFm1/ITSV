@@ -1,56 +1,21 @@
 .div_prin{
-	justify-content: center;
-	align-items: center;
-	width: 3%;
-	border-radius: 15px;
-    box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    -webkit-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    -moz-box-shadow: 1px 6px 22px 0px rgba(0,0,0,0.51);
-    margin-top: 50px;
-	padding: 30px;
-    opacity: 1;
-    z-index: 1;
-    background: white;
+    align-items: center;
     margin-left: 37%;
-
-	
+    justify-content: center;
 }
 
 .div_containt{
+    margin-top: 20px;
 	justify-content: center;
 	align-items: center;
+    padding: 20px;   
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     
-}
 
-/*ADAPTACION PANTALLA*/
-
-
-@media only screen and (max-width: 480px){
-	.div_prin{	
-		width: 85%;	
-	}
-
-	.log{
-		width: 100%;
-	}
-}
-
-@media only screen and (max-width: 830px){
-	.div_prin{
-		width: 70%;
-	}
-}
-
-@media only screen and (min-width: 830px) and (max-width: 1200px){
-	.div_prin{
-		width: 70%;
-	}
-}
-
-@media only screen and (min-width: 1201px){
-	.div_prin{
-		width: 26%;
-	}
 }
 
 .img_villada{
@@ -186,46 +151,17 @@ label {
   color: #fff;
 }
 
-@media (min-width: 768px) {
-  .btn_log {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
-  }
-}
 
 
+.div_containt2{
+    margin-top: 20px;
+	justify-content: center;
+	align-items: center;
+    padding: 20px;   
+    background: #15004e;
+    border-radius: 20px;
 
-.div_sec{
-    align-items: center;
-    justify-content: center;
-}
-
-@media only screen and (max-width: 480px){
-	.div_sec{	
-		width: 85%;	
-	}
-
-	.log{
-		width: 100%;
-	}
-}
-
-@media only screen and (max-width: 830px){
-	.div_sec{
-		width: 70%;
-	}
-}
-
-@media only screen and (min-width: 830px) and (max-width: 1200px){
-	.div_sec{
-		width: 70%;
-	}
-}
-
-@media only screen and (min-width: 1201px){
-	.div_sec{
-		width: 26%;
-	}
+    
 }
 
 .btn_reg{
@@ -253,7 +189,7 @@ label {
 }
 
 .btn_reg:hover {
-    background-color: #5d81bb;
+    background-color: red;
     color: #fff;
   }
   
@@ -268,6 +204,13 @@ label {
 	margin-top: 5%;
 	margin-left: 10%;
 }
+#dni{
+    padding-right: 20%;
+    margin-left: 29%;
+    padding: 10px;
+    border-radius: 50px;
+}
+
 
 #btn_dha{
     color: rgb(146, 0, 0);
@@ -297,10 +240,47 @@ label {
     justify-content: center ;
 }
 
-#dni{
-    padding-right: 20%;
-    margin-left: 33%;
-    padding: 10px;
+
+
+@media only screen and (max-width: 830px){
+	.div_prin{
+		width: 70%;
+	}
 
 }
 
+@media only screen and (min-width: 830px) and (max-width: 1200px){
+	.div_prin{
+		width: 70%;
+	}
+
+}
+
+@media only screen and (min-width: 1201px){
+	.div_prin{
+		width: 26%;
+	}
+
+}
+
+@media only screen and (max-width: 480px){
+	.div_prin{	
+		width: 85%;	
+	}
+
+	.log{
+		width: 100%;
+	}
+	.div_sec{	
+		width: 85%;	
+	}
+
+}
+
+@media (min-width: 768px) {
+    .btn_log {
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+    }
+  }
+  
