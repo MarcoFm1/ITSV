@@ -33,6 +33,7 @@ class Persona(models.Model):
     apellido = models.CharField(db_column='APELLIDO TUTOR', max_length=30, blank=True, null=True)  # Field name made lowercase.
     telefono = models.CharField(db_column='TELEFONO TUTOR', max_length=10, blank=True, null=True)  # Field name made lowercase.
     email = models.CharField(db_column='EMAIL TUTOR', max_length=50, blank=True, null=True)  # Field name made lowercase.
+
     
     def __str__(self) -> str:
         return self.nombre

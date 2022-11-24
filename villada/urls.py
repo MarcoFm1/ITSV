@@ -15,11 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from villadApp.views import ITS, LOGIN, QUERY
+from villadApp.views import ITS, LOGIN, REGISTER
+
+
+from villadApp import views as user_views
+from django.contrib.auth import views as auth_views
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("villada/", ITS),
     path('login/', LOGIN),
-    path('test/', QUERY)
+    path('register/', user_views.register, name='register'),
+
+    path('login/', auth_views.LoginView.as_view(template_name='../templates/villadApp/login.html'), name='login'),
 ]
+

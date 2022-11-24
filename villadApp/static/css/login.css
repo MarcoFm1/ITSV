@@ -1,6 +1,5 @@
 .div_prin{
     align-items: center;
-    margin-left: 37%;
     justify-content: center;
 }
 
@@ -8,14 +7,11 @@
     margin-top: 20px;
 	justify-content: center;
 	align-items: center;
-    padding: 20px;   
     background: white;
     border-radius: 20px;
     box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
-    
-
 }
 
 .img_villada{
@@ -29,12 +25,7 @@
 
 
 
-:after {
-    margin: 0;
-    padding: 0;
-    font-family: inherit;
-    box-sizing: border-box;
-}
+
 #main {
     width: max-content;
     margin: 40px auto;
