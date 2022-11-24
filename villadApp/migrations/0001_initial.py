@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
             name='Materia',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fechacreacion', models.DateField(auto_now_add=True, db_column='CREACION')),
+                ('abreviado', models.CharField(blank=True, db_column='ABREVIADO', max_length=3, null=True)),
                 ('nombre', models.CharField(blank=True, db_column='NOMBRE', max_length=35, null=True)),
                 ('descripcion', models.CharField(blank=True, db_column='DESCRIPCION', max_length=250, null=True)),
                 ('objetivos', models.CharField(blank=True, db_column='OBJETIVOS', max_length=250, null=True)),

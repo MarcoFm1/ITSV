@@ -4,24 +4,28 @@ from django.db import models
 # Create your models here.
 # COSAS PARA MARTA LA SECRETARIA DE 150 AÑOS
 class Anio(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     anio = models.IntegerField(db_column='ANIO')  # Field name made lowercase.
 
     def __str__(self) -> str:
         return str(self.anio)
 
 class Division(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     division = models.CharField(db_column='DIVISION', max_length=1)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return self.division
 
 class Especialidad(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     especialidad = models.CharField(db_column='ESPECIALIDADES', max_length=30)  # Field name made lowercase.
 
     def __str__(self) -> str:
         return self.especialidad
 
 class DiasSemana(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     dia = models.CharField(db_column='DIA', max_length=30)  # Field name made lowercase.
 
     def __str__(self) -> str:
@@ -47,14 +51,22 @@ class Modulo(models.Model):
 
 class Materia(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
+    abreviado = models.CharField(db_column='ABREVIADO', max_length=3, blank=True, null=True)  # Field name made lowercase.
     nombre = models.CharField(db_column='NOMBRE', max_length=35, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='DESCRIPCION', max_length=250, blank=True, null=True)  # Field name made lowercase.
-    objetivos = models.CharField(db_column='OBJETIVOS', max_length=250, blank=True, null=True)  # Field name made lowercase.
-
     def __str__(self) -> str:
         return self.nombre
 
 class ContenidosMateria(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
+    nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    descripcion = models.CharField(db_column='CONTENIDOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
+
+    def __str__(self) -> str:
+        return f'{self.materia} contenidos'
+
+class ObjetivosMateria(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     nombre = models.CharField(db_column='OBJETIVOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='CONTENIDOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
@@ -132,6 +144,7 @@ class Tutor(Persona):
         pass
 
 class RelacionAT(models.Model):
+    fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     tutores = models.ForeignKey(Tutor, models.DO_NOTHING, db_column='TUTORES', blank=True, null=True)  # Field name made lowercase.
     alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='ALUMNO', blank=True, null=True)  # Field name made lowercase.
     class Meta(Persona.Meta):
