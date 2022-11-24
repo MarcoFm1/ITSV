@@ -9,6 +9,9 @@ def ITS(request):
 def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
 
+def ASISTENCIA(request):
+    return render(request,'../templates/villadApp/asistencia.html')
+
 def PROFILE(request,tipo,nombre):
     
     if tipo == 'estudiante':
