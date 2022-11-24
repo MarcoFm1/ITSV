@@ -16,6 +16,7 @@ admin.site.register(Cronograma)
 admin.site.register(CronogramaDia)
 admin.site.register(MateriaHorario)
 admin.site.register(Temario)
+admin.site.register(ObjetivosMateria)
 # personas
 admin.site.register(Autorizado)
 admin.site.register(Profesor)
