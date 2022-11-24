@@ -17,8 +17,9 @@
             <img src="{%static '/src/logo_profile.png'%}" alt="">
             <div class="principal-profile-info">
                 <h1>{{nombre}}</h1>
-                <h3>{{"4to D - Cheff"}}</h3>
-                <h3>{{"Mascota"}}</h3>
+                <h3>{{estudiante.curso}}</h3>
+                <h3>{{rol}}</h3>
+
             </div>
             
         </div>
@@ -33,92 +34,92 @@
                   <th>Viernes</th>
                 </tr>
                 <tr>
-                    <th>1ra Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <th>1er Modulo</th>
+                    <td>{{ modulos.1.Lunes }}</td>
+                    <td>{{ modulos.1.Martes }}</td> 
+                    <td>{{ modulos.1.Miercoles }}</td>   
+                    <td>{{ modulos.1.Jueves }}</td> 
+                    <td>{{ modulos.1.Viernes }}</td>              
                   </tr>
                 <tr>
                   <th>2da Hora</th>
-                  <td>1 Lunes</td>
-                  <td>1 Martes</td> 
-                  <td>1 Miercoles</td>   
-                  <td>1 Jueves</td> 
-                  <td>1 Viernes</td>              
+                  <td>{{ modulos.2.Lunes }}</td>
+                  <td>{{ modulos.2.Martes }}</td> 
+                  <td>{{ modulos.2.Miercoles }}</td>   
+                  <td>{{ modulos.2.Jueves }}</td> 
+                  <td>{{ modulos.2.Viernes }}</td>            
                 </tr>              
                 <tr>
                     <th>3ra Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.3.Lunes }}</td>
+                    <td>{{ modulos.3.Martes }}</td> 
+                    <td>{{ modulos.3.Miercoles }}</td>   
+                    <td>{{ modulos.3.Jueves }}</td> 
+                    <td>{{ modulos.3.Viernes }}</td>            
                 </tr> 
                 <tr>
                     <th>4ta Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.4.Lunes }}</td>
+                    <td>{{ modulos.4.Martes }}</td> 
+                    <td>{{ modulos.4.Miercoles }}</td>   
+                    <td>{{ modulos.4.Jueves }}</td> 
+                    <td>{{ modulos.4.Viernes }}</td>            
                 </tr>  
                 <tr>
                     <th>5ta Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.5.Lunes }}</td>
+                    <td>{{ modulos.5.Martes }}</td> 
+                    <td>{{ modulos.5.Miercoles }}</td>   
+                    <td>{{ modulos.5.Jueves }}</td> 
+                    <td>{{ modulos.5.Viernes }}</td>             
                 </tr>  
                 <tr>
                     <th>6ta Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.6.Lunes }}</td>
+                    <td>{{ modulos.6.Martes }}</td> 
+                    <td>{{ modulos.6.Miercoles }}</td>   
+                    <td>{{ modulos.6.Jueves }}</td> 
+                    <td>{{ modulos.6.Viernes }}</td>             
                 </tr>   
                 <tr>
                     <th>7ma Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.7.Lunes }}</td>
+                    <td>{{ modulos.7.Martes }}</td> 
+                    <td>{{ modulos.7.Miercoles }}</td>   
+                    <td>{{ modulos.7.Jueves }}</td> 
+                    <td>{{ modulos.7.Viernes }}</td>            
                 </tr>   
                 <tr>
                     <th>8va Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.8.Lunes }}</td>
+                    <td>{{ modulos.8.Martes }}</td> 
+                    <td>{{ modulos.8.Miercoles }}</td>   
+                    <td>{{ modulos.8.Jueves }}</td> 
+                    <td>{{ modulos.8.Viernes }}</td>        
                 </tr>   
                 <tr>
                     <th>9na Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.9.Lunes }}</td>
+                    <td>{{ modulos.9.Martes }}</td> 
+                    <td>{{ modulos.9.Miercoles }}</td>   
+                    <td>{{ modulos.9.Jueves }}</td> 
+                    <td>{{ modulos.9.Viernes }}</td>            
                 </tr>   
                 <tr>
                     <th>10ma Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.10.Lunes }}</td>
+                    <td>{{ modulos.10.Martes }}</td> 
+                    <td>{{ modulos.10.Miercoles }}</td>   
+                    <td>{{ modulos.10.Jueves }}</td> 
+                    <td>{{ modulos.10.Viernes }}</td>             
                 </tr> 
                 <tr>
                     <th>11va Hora</th>
-                    <td>1 Lunes</td>
-                    <td>1 Martes</td> 
-                    <td>1 Miercoles</td>   
-                    <td>1 Jueves</td> 
-                    <td>1 Viernes</td>              
+                    <td>{{ modulos.11.Lunes }}</td>
+                    <td>{{ modulos.11.Martes }}</td> 
+                    <td>{{ modulos.11.Miercoles }}</td>   
+                    <td>{{ modulos.11.Jueves }}</td> 
+                    <td>{{ modulos.11.Viernes }}</td>           
                 </tr>            
               </table>
         </div>
