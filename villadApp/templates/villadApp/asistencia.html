@@ -1,4 +1,16 @@
+{% extends "villadApp/base.html" %}
 {% load static %}
+
+
+{% block title %}
+    Pagina Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{%static '/css/profile.css'%}">
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +21,16 @@
     <link rel="stylesheet" href="{%static '/css/asistencia.css'%}">
 </head>
 <body>
-    test
+    <div class="main_column">
+        <div class="main_row">
+            <div class="asistencias">
+
+            </div>
+            <div class="llegadas_tarde">
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+{% endblock %}
