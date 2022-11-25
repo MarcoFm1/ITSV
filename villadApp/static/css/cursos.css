@@ -1,0 +1,394 @@
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+}
+
+.titulo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.titulo h1{
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.cursos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* PRIMERO */
+
+.primero{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.primero:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso1-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso1-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso1:hover .curso1-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+  /* SEGUNDO */
+
+  .segundo{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.segundo:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso2 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso2-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso2-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso2:hover .curso2-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+/* TERCERO */
+
+    .tercero{
+        border: solid 2px black;
+        border-radius: 5px;
+        height: 60px;
+        width: 60px;
+        font-size: 20px;
+        font-style: none;
+        background-color: transparent;
+        margin: 0 5px;
+    }
+    
+    .tercero:hover{
+        background-color: rgb(19, 19, 19);
+        color: white;
+    }
+    
+    .curso3 {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .curso3-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 60px;
+        border: solid 2px black;
+        border-radius: 5px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+        margin: 0 5px;
+      }
+    
+      .curso3-content a{
+        font-size: 20px;
+        font-style: none;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 10px 0;
+      }
+      
+      .curso3:hover .curso3-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+
+
+
+/* CUARTO */
+
+  .cuarto{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.cuarto:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso4 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso4-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso4-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso4:hover .curso4-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+/* QUINTO */
+
+  .quinto{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.quinto:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso5 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso5-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso5-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso5:hover .curso5-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+  /* SEXTO */
+
+.sexto{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.sexto:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso6 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso6-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso6-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso6:hover .curso6-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  /* SEPTIMO */
+
+.septimo{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    font-style: none;
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+.septimo:hover{
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.curso7 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .curso7-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 60px;
+    border: solid 2px black;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    margin: 0 5px;
+  }
+
+  .curso7-content a{
+    font-size: 20px;
+    font-style: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  
+  .curso7:hover .curso7-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+  

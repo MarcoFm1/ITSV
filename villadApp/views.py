@@ -44,3 +44,6 @@ def PROFILE(request,tipo,nombre):
 
 def MATERIAS(request):
     return render(request,'../templates/villadApp/materias.html')
+
+def CURSOS(request):
+    return render(request,'../templates/villadApp/cursos.html')
