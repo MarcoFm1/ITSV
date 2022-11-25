@@ -221,3 +221,15 @@ body{
     }
 }
 
+
+
+/* RESPONSIVE */
+.texto_responsive:before{
+    content: attr(data-desktoptext);
+  }
+  
+  @media (max-width:580px){
+      .texto_responsive:before {
+          content: attr(data-phonetext);
+      }
+  }

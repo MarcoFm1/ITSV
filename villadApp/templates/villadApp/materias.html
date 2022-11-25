@@ -41,11 +41,11 @@
                 </tr>
                 <tr>
                     <th>1er Modulo</th>
-                    <td>{{ elemento_descripcion.1.Lunes }}</td>
-                    <td>{{ elemento_descripcion.1.Martes }}</td> 
-                    <td>{{ elemento_descripcion.1.Miercoles }}</td>   
-                    <td>{{ elemento_descripcion.1.Jueves }}</td> 
-                    <td>{{ elemento_descripcion.1.Viernes }}</td>              
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=elemento_descripcion.Lunes atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{elemento_descripcion.Lunes}}" data-phonetext="{{elemento_descripcion_abr.Lunes}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=elemento_descripcion.Martes atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{elemento_descripcion.Martes}}" data-phonetext="{{elemento_descripcion_abr.Martes}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=elemento_descripcion.Miercoles atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{elemento_descripcion.Miercoles}}" data-phonetext="{{elemento_descripcion_abr.Miercoles}}"></span></a></td>   
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=elemento_descripcion.Jueves atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{elemento_descripcion.Jueves}}" data-phonetext="{{elemento_descripcion_abr.Jueves}}"></span></a></td> 
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=elemento_descripcion.Viernes atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{elemento_descripcion.Viernes}}" data-phonetext="{{elemento_descripcion_abr.Viernes}}"></span></a></td>              
                 </tr>
             </table>
         </div>

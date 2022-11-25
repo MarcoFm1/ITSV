@@ -54,13 +54,16 @@ def DESCRIPCION(request,objeto,elemento,atributo):
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso)
 
         modulos_materias = {}
+        modulos_materias_abr = {}
         for i in materia_horario:
             if i.modulo.orden == int(elemento):
                 if i.modulo.orden in modulos_materias:
                     modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
+                    modulos_materias_abr[i.modulo.orden][f'{i.dia.dia}'] = i.materia.abreviado
                 else:
                     modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
-        response = {'objeto':objeto,'elemento_nombre':f'{modulo.orden}{modulo.sufijo} Modulo','elemento_descripcion':modulos_materias}
+                    modulos_materias_abr[i.modulo.orden] = {f'{i.dia.dia}':i.materia.abreviado}
+        response = {'objeto':objeto,'elemento_nombre':f'{modulo.orden}{modulo.sufijo} Modulo','elemento_descripcion':modulos_materias[modulo.orden],'elemento_descripcion_abr':modulos_materias_abr[modulo.orden]}
         return render(request,'../templates/villadApp/materias.html',response)
     
     elif objeto == 'dias':

@@ -23,6 +23,6 @@ urlpatterns = [
     path('login/', LOGIN),
     path('asistencia/', ASISTENCIA),
     path('profile/<str:tipo>/<str:nombre>/', PROFILE),
-    path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION),
+    path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION,name='descripcion'),
     path('cursos/', CURSOS)
 ]
