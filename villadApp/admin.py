@@ -6,6 +6,7 @@ admin.site.register(Anio)
 admin.site.register(Division)
 admin.site.register(Especialidad)
 admin.site.register(DiasSemana)
+
 # materia cosas
 admin.site.register(Modulo)
 admin.site.register(Materia)
