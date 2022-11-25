@@ -126,28 +126,24 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-JAZZMIN_UI_TWEAKS = {
-    "theme": "cyborg",
-}
-
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "ITSV Admin",
+    "site_title": "Villada Admin",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "ITS VILLADA",
+    "site_header": "Villada",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "Villada",
+    "site_brand": "VIllada",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    ##"site_logo": "../villadApp/static/src/villadalogo.png",
+    "site_logo": "villadApp/img/villadalogo.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "../villadApp/static/src/villadalogo.png",
+    "login_logo": None,
 
     # Logo to use for login form in dark themes (defaults to login_logo)
-    "login_logo_dark": "../villadApp/static/src/villadalogo.png",
+    "login_logo_dark": None,
 
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
@@ -156,14 +152,13 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "¡Bienvenido a la pagina del ITS Villada!",
+    "welcome_sign": "¡Bienvenido a la pagina del Villada!",
 
     # Copyright on the footer
-    "copyright": "ITSV promo 23",
+    "copyright": "6C Villada Ltd",
 
-    # List of model admins to search from the search bar, search bar omitted if excluded
-    # If you want to use a single search field you dont need to use a list, you can use a simple string 
-    "search_model": ["auth.User", "auth.Group"],
+    # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": "auth.User",
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,
@@ -173,14 +168,13 @@ JAZZMIN_SETTINGS = {
     ############
 
     # Links to put along the top menu
-    
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Inicio",  "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/MarcoFm1/ITSV.git", "new_window": True},
+        {"name": "Ayuda", "url": "https://github.com/tomasguell/Peaje_Villada_2022", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
@@ -195,7 +189,7 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/MarcoFm1/ITSV.git", "new_window": True},
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
         {"model": "auth.user"}
     ],
 
@@ -251,8 +245,6 @@ JAZZMIN_SETTINGS = {
     # Relative paths to custom CSS/JS scripts (must be present in static files)
     "custom_css": None,
     "custom_js": None,
-    # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
-    "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar
     "show_ui_builder": False,
 
@@ -268,7 +260,7 @@ JAZZMIN_SETTINGS = {
     "changeform_format": "horizontal_tabs",
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
-  
+    
 }
 
 
