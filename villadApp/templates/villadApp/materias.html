@@ -10,18 +10,48 @@
 <link rel="stylesheet" href="{%static '/css/materias.css'%}">
 {% endblock %}
 
-
 {% block content %}
+
+    {% if objeto == 'materias' %}
+
     <div class="header-materias">
-        <h1 class="titulo" id="titulo"> {{materia_nombre}} </h1>
+        <h1 class="titulo" id="titulo"> {{elemento_nombre}} </h1>
         <div class="parrafo-main">
-            <p class="parrafo" id="parrafo"> {{materia_descripcion}}
+            <p class="parrafo" id="parrafo"> {{elemento_descripcion}}
             </p>
         </div>
         
         <button id="boton" onclick="animacion()">+ INFO</button>
     </div>
+    <script src="{%static '/js/materias.js'%}"></script>
+
+    {% else %}
+
+    <div class="header-materias">
+        <h1 class="titulo" id="titulo"> {{elemento_nombre}} </h1>
+        <div class="container-table">
+            <table class="table">
+                <tr>
+                    <th scope="row"><a href="{% url 'villada'%}"> Día</a></th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miecoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>
+                <tr>
+                    <th>1er Modulo</th>
+                    <td>{{ elemento_descripcion.1.Lunes }}</td>
+                    <td>{{ elemento_descripcion.1.Martes }}</td> 
+                    <td>{{ elemento_descripcion.1.Miercoles }}</td>   
+                    <td>{{ elemento_descripcion.1.Jueves }}</td> 
+                    <td>{{ elemento_descripcion.1.Viernes }}</td>              
+                </tr>
+            </table>
+        </div>
+    </div>
 
     </div>
-    <script src="{%static '/js/materias.js'%}"></script>
+    {% endif %}
+
 {% endblock %}

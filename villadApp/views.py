@@ -42,8 +42,30 @@ def PROFILE(request,tipo,nombre):
     response = {'nombre':nombre,'estudiante':estudiante,'rol':rol,'modulos':modulos_materias}
     return render(request,'../templates/villadApp/profile.html',response)
 
-def MATERIAS(request):
-    return render(request,'../templates/villadApp/materias.html')
+def DESCRIPCION(request,objeto,elemento,atributo):
+    if objeto == 'materias':
+        materia = Materia.objects.all().get(nombre = elemento)
+        response = {'objeto':objeto,'elemento_nombre':materia.nombre,'elemento_descripcion':f'{materia.nombre} ({materia.abreviado}) {materia.descripcion}'}
+        return render(request,'../templates/villadApp/materias.html',response)
+    
+    elif objeto == 'modulos':
+        modulo = Modulo.objects.all().get(orden = int(elemento))
+        curso = Curso.objects.all().get(anio__anio = int(atributo[0]),division__division = atributo[1])
+        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso)
 
+        modulos_materias = {}
+        for i in materia_horario:
+            if i.modulo.orden == int(elemento):
+                if i.modulo.orden in modulos_materias:
+                    modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
+                else:
+                    modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
+        response = {'objeto':objeto,'elemento_nombre':f'{modulo.orden}{modulo.sufijo} Modulo','elemento_descripcion':modulos_materias}
+        return render(request,'../templates/villadApp/materias.html',response)
+    
+    elif objeto == 'dias':
+        dia = DiasSemana.objects.all().get(dia == elemento)
+        response = {'objeto':objeto,'elemento_nombre':dia.dia,'elemento_descripcion':f''}
+        return render(request,'../templates/villadApp/materias.html',response)
 def CURSOS(request):
     return render(request,'../templates/villadApp/cursos.html')
