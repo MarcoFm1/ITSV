@@ -43,6 +43,7 @@ class Persona(models.Model):
 # clase para materias
 class Modulo(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
+    sufijo = models.CharField(db_column="SUFIJO", max_length=2, auto_now_add=True, editable=False)
     hora_inicio = models.TimeField(db_column='HORA INICIO')  # Field name made lowercase.
     hora_final = models.TimeField(db_column='HORA FINAL')  # Field name made lowercase.CASCADE
     orden = models.IntegerField(db_column='ORDEN')  # Field name made lowercase.
@@ -51,7 +52,7 @@ class Modulo(models.Model):
 
 class Materia(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
-    abreviado = models.CharField(db_column='ABREVIADO', max_length=3, blank=True, null=True)  # Field name made lowercase.
+    abreviado = models.CharField(db_column='ABREVIADO', max_length=4, blank=True, null=True)  # Field name made lowercase.
     nombre = models.CharField(db_column='NOMBRE', max_length=35, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='DESCRIPCION', max_length=250, blank=True, null=True)  # Field name made lowercase.
     def __str__(self) -> str:
