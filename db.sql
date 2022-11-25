@@ -3,3 +3,4 @@ CREATE DATABASE VilladaApp;
 
 USE VilladaApp;
 
+CREATE TABLE 
