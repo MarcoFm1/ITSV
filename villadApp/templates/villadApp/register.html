@@ -42,14 +42,14 @@
     	{% csrf_token %}
 		{% for field in form %}
         <div>
-            <p >{{ field.label }}: <br> {{ field }}</p> 
+            <p class="label">{{ field.label }}: <br class='aaa'> {{ field }}</p> 
 
             {% for error in field.errors %}
 			
             <small style="color: red">{{ error }}</small>
             {% endfor %}
     {% endfor %}
-    <button class='btn_reg' type="submit">Register</button>
+    <button class='btn_reg' type="submit">UNETE!</button>
 	</div>
 
 	</div>

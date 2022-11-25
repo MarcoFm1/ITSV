@@ -177,10 +177,11 @@ label {
     -webkit-user-select: none;
     touch-action: manipulation;
     border: grey 0.1px solid;
+    margin-bottom: 20px;
 }
 
 .btn_reg:hover {
-    background-color: red;
+    background-color: rgb(11, 0, 109);
     color: #fff;
   }
   
@@ -229,6 +230,12 @@ label {
 .div_containt2{
     align-items: center;
     justify-content: center ;
+}
+
+.label{
+    margin-top: 5px;
+    padding: 2px;
+    font-size: 20px;
 }
 
 
