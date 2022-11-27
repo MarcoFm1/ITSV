@@ -54,27 +54,29 @@ class Materia(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     abreviado = models.CharField(db_column='ABREVIADO', max_length=4, blank=True, null=True)  # Field name made lowercase.
     nombre = models.CharField(db_column='NOMBRE', max_length=35, blank=True, null=True)  # Field name made lowercase.
-    descripcion = models.CharField(db_column='DESCRIPCION', max_length=250, blank=True, null=True)  # Field name made lowercase.
+    descripcion = models.CharField(db_column='DESCRIPCION', max_length=500, blank=True, null=True)  # Field name made lowercase.
     def __str__(self) -> str:
-        return self.nombre
+        return f"{self.abreviado} {self.nombre}"
 
 class ContenidosMateria(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='CONTENIDOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
+    anio = models.ForeignKey(Anio, models.DO_NOTHING, db_column='ANIO', blank=True, null=True)
 
     def __str__(self) -> str:
-        return f'{self.materia} contenidos'
+        return f'{self.materia} {self.nombre} {self.anio} contenidos'
 
 class ObjetivosMateria(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     nombre = models.CharField(db_column='OBJETIVOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(db_column='CONTENIDOS', max_length=50, blank=True, null=True)  # Field name made lowercase.
     materia = models.ForeignKey(Materia, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)  # Field name made lowercase.
+    anio = models.ForeignKey(Anio, models.DO_NOTHING, db_column='ANIO', blank=True, null=True)
 
     def __str__(self) -> str:
-        return f'{self.materia} contenidos'
+        return f'{self.materia} {self.nombre} {self.anio} objetivos'
 
 # clase para cursos
 
@@ -90,7 +92,7 @@ class Cronograma(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)
     def __str__(self) -> str:
-        return f'{self.fechacreacion.year}: {self.curso.division} ° {self.curso.division}'
+        return f'{self.fechacreacion.year}: {self.curso.anio} ° {self.curso.division}'
 
 class CronogramaDia(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
@@ -98,7 +100,7 @@ class CronogramaDia(models.Model):
     dia = models.ForeignKey(DiasSemana, models.DO_NOTHING, db_column='DIA', blank=True, null=True)
     
     def __str__(self) -> str:
-        return f'{self.fechacreacion.year}: {self.dia}: {self.cronograma.curso.division} ° {self.cronograma.curso.division}'
+        return f'{self.fechacreacion.year}: {self.dia}: {self.cronograma.curso.anio} ° {self.cronograma.curso.division}'
 
 class MateriaHorario(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
