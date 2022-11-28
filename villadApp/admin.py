@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Anio, Division, Especialidad, DiasSemana, Modulo, Materia, ContenidosMateria, Curso, Cronograma, CronogramaDia, MateriaHorario, Temario, Autorizado, Profesor, Alumno, Tutor, RelacionAT, EncargadoFaltas, Asistencia, Falta
+from .models import Anio, Division, Especialidad, DiasSemana, Modulo, Materia, ContenidosMateria, Curso, Cronograma, CronogramaDia, MateriaHorario, Temario, Autorizado, Profesor, Alumno, Tutor, RelacionAT, EncargadoFaltas, Asistencia, Falta, ObjetivosMateria
 
 # Register your models here.
 
@@ -36,8 +36,8 @@ class ModuloAdmin(admin.ModelAdmin):
     search_fields = ("hora_inicio", "orden") #Agrega un buscador por nombre
 
 class MateriaAdmin(admin.ModelAdmin):  
-    list_display = ("fechacreacion", "nombre", "descripcion", "objetivos") #Muestra nombre precio y stock en la pagina
-    list_filter = ("fechacreacion", "nombre", "descripcion", "objetivos") #Agrega un filtro de datos a la derecha
+    list_display = ("fechacreacion", "nombre", "descripcion") #Muestra nombre precio y stock en la pagina
+    list_filter = ("fechacreacion", "nombre", "descripcion") #Agrega un filtro de datos a la derecha
     search_fields = ["nombre"] #Agrega un buscador por nombre
 
 class ContenidosMateriaAdmin(admin.ModelAdmin):  
