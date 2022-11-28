@@ -19,7 +19,7 @@ from villadApp.views import ITS, LOGIN, PROFILE, ASISTENCIA,MATERIAS, CURSOS
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS,name='villada'),
+    path("", ITS,name='villada'),
     path('login/', LOGIN),
     path('asistencia/', ASISTENCIA),
     path('profile/<str:tipo>/<str:nombre>/', PROFILE),
