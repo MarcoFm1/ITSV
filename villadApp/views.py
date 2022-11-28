@@ -5,7 +5,7 @@ from .models import *
 # Create your views here.
 
 def ITS(request):
-    return render(request,'../templates/villadApp/main.html')
+    return render(request,'../templates/villadApp/index.html')
 
 def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
@@ -47,3 +47,4 @@ def MATERIAS(request):
 
 def CURSOS(request):
     return render(request,'../templates/villadApp/cursos.html')
+
