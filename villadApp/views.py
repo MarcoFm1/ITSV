@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import *
 
 # Create your views here.
@@ -51,24 +51,20 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     elif objeto == 'modulos':
         modulo = Modulo.objects.all().get(orden = int(elemento))
         curso = Curso.objects.all().get(anio__anio = int(atributo[0]),division__division = atributo[1])
-        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso)
+        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso).filter(modulo__orden = int(elemento))
 
         modulos_materias = {}
-        modulos_materias_abr = {}
         for i in materia_horario:
-            if i.modulo.orden == int(elemento):
-                if i.modulo.orden in modulos_materias:
-                    modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
-                    modulos_materias_abr[i.modulo.orden][f'{i.dia.dia}'] = i.materia.abreviado
-                else:
-                    modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
-                    modulos_materias_abr[i.modulo.orden] = {f'{i.dia.dia}':i.materia.abreviado}
-        response = {'objeto':objeto,'elemento_nombre':f'{modulo.orden}{modulo.sufijo} Modulo','elemento_descripcion':modulos_materias[modulo.orden],'elemento_descripcion_abr':modulos_materias_abr[modulo.orden]}
+            modulos_materias[f'{i.dia.dia}'] = {'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado} 
+        
+        response = {'objeto':objeto,'elemento_nombre':f'{modulo.orden}{modulo.sufijo} Modulo','elemento_descripcion':modulos_materias.values()}
         return render(request,'../templates/villadApp/materias.html',response)
     
     elif objeto == 'dias':
         dia = DiasSemana.objects.all().get(dia == elemento)
         response = {'objeto':objeto,'elemento_nombre':dia.dia,'elemento_descripcion':f''}
         return render(request,'../templates/villadApp/materias.html',response)
+    else:
+        return redirect('villada')
 def CURSOS(request):
     return render(request,'../templates/villadApp/cursos.html')

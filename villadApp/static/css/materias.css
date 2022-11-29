@@ -228,7 +228,7 @@ body{
     content: attr(data-desktoptext);
   }
   
-  @media (max-width:580px){
+  @media (max-width:600px){
       .texto_responsive:before {
           content: attr(data-phonetext);
       }
