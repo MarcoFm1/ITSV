@@ -22,6 +22,3 @@ def REGISTER(request):
 def LOGIN(request):
     context = {}
     return render(request,'../templates/villadApp/login.html', context)
-
-def PRUEBA():
-    print('enie')
