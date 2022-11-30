@@ -83,12 +83,12 @@
 
                 <table class="table">
                     <tr>
-                        <th scope="row"><a href="{% url 'villada'%}"> Día</a></th>
+                        <th scope="row"><a href="{% url 'descripcion' objeto='dias' elemento='All' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Modulos" data-phonetext="Mod"></span></a></th>
                         <th><a href="{% url 'descripcion' objeto='dias' elemento=elemento atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{elemento}}" data-phonetext="{{elemento}}"></span></a></th>
                     </tr>
                     {%for i in materia_horario%}
                     <tr>
-                        <th><a href="{% url 'descripcion' objeto='modulos' elemento=i.modulo.orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{i.modulo.orden}}" data-phonetext="{{i.modulo.orden}}"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='modulos' elemento=i.modulo.orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{i.modulo.orden}}{{i.modulo.sufijo}} modulo" data-phonetext="{{i.modulo.orden}}{{i.modulo.sufijo}}"></span></a></th>
                         <td><a href="{% url 'descripcion' objeto='materias' elemento=i.materia.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.materia.nombre}}" data-phonetext="{{i.materia.abreviado}}"></span></a></td>
                     </tr>
                     {%endfor%}
