@@ -14,34 +14,23 @@ def ASISTENCIA(request):
     return render(request,'../templates/villadApp/asistencia.html')
 
 def PROFILE(request,tipo,nombre):
-    
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(nombre = nombre)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
-        rol = 'Estudiante'
 
-        nombre_final = ''
-        for i in nombre:
-            if i.isupper():
-                nombre_final += f' {i}'
+        modulos_materias = {}
+        for i in materia_horario:
+            if i.modulo.orden in modulos_materias:
+                modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
             else:
-                nombre_final += f'{i}'
-    else:
-        nombre_final = nombre
+                modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
         
-
-    nombre = nombre_final
+        
+        response = {'nombre':nombre,'estudiante':estudiante,'rol':tipo.title(),'modulos':modulos_materias}
+        return render(request,'../templates/villadApp/profile.html',response)
+    else:
+        return redirect('villada')
     
-    modulos_materias = {}
-    for i in materia_horario:
-        if i.modulo.orden in modulos_materias:
-            modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
-        else:
-            modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
-            
-    response = {'nombre':nombre,'estudiante':estudiante,'rol':rol,'modulos':modulos_materias}
-    return render(request,'../templates/villadApp/profile.html',response)
-
 def DESCRIPCION(request,objeto,elemento,atributo):
     if objeto == 'materias':
         materia = Materia.objects.all().get(nombre = elemento)
@@ -72,7 +61,7 @@ def DESCRIPCION(request,objeto,elemento,atributo):
                     modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = {'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado}
                 else:
                     modulos_materias[i.modulo.orden] = {'orden':i.modulo,f'{i.dia.dia}':{'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado}}
-            
+
             response = {'objeto':objeto,'elemento':elemento,'atributo':atributo,'modulos_materia':modulos_materias}
             
         else:
