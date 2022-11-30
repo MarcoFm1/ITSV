@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from villadApp.views import ITS, LOGIN, REGISTER
+from villadApp.views import ITS, LOGIN, REGISTER, LOGOUT
 
 
 
@@ -25,5 +25,7 @@ urlpatterns = [
     path("", ITS, name='home'),
     path('login/', LOGIN, name='login'),
     path('register/', REGISTER, name='register'),
+    path('logout/', LOGOUT, name='logout'),
+
 ]
 

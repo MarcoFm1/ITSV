@@ -41,7 +41,13 @@ def LOGIN(request):
         if user is not None:
             login(request, user)
             return redirect('home')
-
+        else:
+            messages.info(request, 'Nombre o Token incorrectos')
 
     context = {}
     return render(request,'../templates/villadApp/login.html', context)
+
+
+def LOGOUT(request):
+    logout(request)
+    return redirect('login')
