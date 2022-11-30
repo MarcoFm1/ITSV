@@ -7,17 +7,21 @@ html {
 .user_card {
     width: 350px;
     margin-bottom: auto;
-    background:#011866;
+    background:#ffffff;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 10px;
     align-items: center;
+    box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    margin-bottom: 200px;
 }
 
 p{
-    color: rgb(255, 255, 255);
+    display: none;
 }
 
 .form_container {
@@ -25,23 +29,39 @@ p{
 }
 
 #form-title{
-    color: #fff;
+    font-size: 30px;
+    background: -webkit-linear-gradient(rgb(230, 13, 13), rgb(3, 1, 161));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-weight: bold;
 }
 .login_btn {
     width: 100%;
-    background: #57329b !important;
+    background: #0d0086 !important;
     color: white !important;
 }
 .login_btn:focus {
     box-shadow: none !important;
     outline: 0px !important;
 }
+
+
+.login_btn:hover{
+    background: #0034c2f3 !important;
+    box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
+    -webkit-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
+    -moz-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
+    
+    
+}
+
 .login_container {
     padding: 0 2rem;
 }
 .input-group-text {
     background: #aa0000 !important;
-    color: white !important;
+    color: rgb(255, 255, 255) !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
 }
@@ -49,4 +69,15 @@ p{
 .input_pass:focus {
     box-shadow: none !important;
     outline: 0px !important;
+}
+
+.div-img-villdada{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+img{
+    object-fit: cover;
+    height: 100px;
 }
