@@ -1,0 +1,52 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #ffff !important;
+}
+.user_card {
+    width: 350px;
+    margin-bottom: auto;
+    background:#011866;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+p{
+    color: rgb(255, 255, 255);
+}
+
+.form_container {
+    margin-top: 20px;
+}
+
+#form-title{
+    color: #fff;
+}
+.login_btn {
+    width: 100%;
+    background: #57329b !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: #aa0000 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}

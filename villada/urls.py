@@ -18,19 +18,12 @@ from django.urls import path
 from villadApp.views import ITS, LOGIN, REGISTER
 
 
-from villadApp import views as user_views
-from django.contrib.auth import views as auth_views
-
-
-
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS),
-    path('login/', LOGIN),
-    path('register/', user_views.register, name='register'),
-
-    path('login/', auth_views.LoginView.as_view(template_name='../templates/villadApp/login.html'), name='login'),
+    path("villada/", ITS, name='home'),
+    path('login/', LOGIN, name='login'),
+    path('register/', REGISTER, name='register'),
 ]
 
