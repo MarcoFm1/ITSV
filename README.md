@@ -9,3 +9,10 @@
 
 
 
+
+# Instalacion de JAZZMIN
+## Codigo
+> pip install -U django-jazzmin
+
+
+
