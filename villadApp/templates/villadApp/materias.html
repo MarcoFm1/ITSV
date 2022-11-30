@@ -10,18 +10,94 @@
 <link rel="stylesheet" href="{%static '/css/materias.css'%}">
 {% endblock %}
 
-
 {% block content %}
+
+    {% if objeto == 'materias' %}
+
     <div class="header-materias">
-        <h1 class="titulo" id="titulo"> {{materia_nombre}} </h1>
+        <h1 class="titulo" id="titulo"> {{elemento_nombre}} </h1>
         <div class="parrafo-main">
-            <p class="parrafo" id="parrafo"> {{materia_descripcion}}
+            <p class="parrafo" id="parrafo"> {{elemento_descripcion}}
             </p>
         </div>
         
         <button id="boton" onclick="animacion()">+ INFO</button>
     </div>
-
-    </div>
     <script src="{%static '/js/materias.js'%}"></script>
+
+    {% elif objeto == 'modulos' %}
+
+    <div class="header-materias">
+        <h1 class="titulo" id="titulo"> {{elemento_nombre}} </h1>
+        <div class="container-table">
+            <table class="table">
+                <tr>
+                    <th scope="row"><a href="{% url 'descripcion' objeto='dias' elemento='All' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Modulos" data-phonetext="Mod"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Lunes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Lunes" data-phonetext="Lun"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Martes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Martes" data-phonetext="Mar"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Miercoles' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Miercoles" data-phonetext="Mie"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Jueves' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Jueves" data-phonetext="Jue"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Viernes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Viernes" data-phonetext="Vie"></span></a></th>
+                </tr>
+                <tr>
+                    <th><a href="{% url 'descripcion' objeto='modulos' elemento=orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{sufijo}} modulo" data-phonetext="{{sufijo}}"></span></a></th>
+                    {% for i in elemento_descripcion %}
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviacion}}"></span></a></td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    
+    {% elif objeto == 'dias' %}
+        <div class="header-materias">
+            <h1 class="titulo" id="titulo"> {{elemento_nombre}} </h1>
+            <div class="container-table-dia">
+
+                {% if elemento == 'All' %}
+                
+                <table class="table">
+                    <tr>
+                        <th scope="row"><a href="{% url 'descripcion' objeto='dias' elemento='All' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Modulos" data-phonetext="Mod"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento='Lunes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Lunes" data-phonetext="Lun"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento='Martes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Martes" data-phonetext="Mar"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento='Miercoles' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Miercoles" data-phonetext="Mie"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento='Jueves' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Jueves" data-phonetext="Jue"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento='Viernes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Viernes" data-phonetext="Vie"></span></a></th>
+                    </tr>
+                    {%for i in modulos_materia.values%}
+                    <tr>
+                        <th><a href="{% url 'descripcion' objeto='modulos' elemento=i.orden.orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{i.orden.orden}}{{i.orden.sufijo}} modulo" data-phonetext="{{i.orden.orden}}{{i.orden.sufijo}}"></span></a></th>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Lunes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Lunes.nombre}}" data-phonetext="{{i.Lunes.abreviacion}}"></span></a></td>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Martes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Martes.nombre}}" data-phonetext="{{i.Martes.abreviacion}}"></span></a></td>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Miercoles.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Miercoles.nombre}}" data-phonetext="{{i.Miercoles.abreviacion}}"></span></a></td>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Jueves.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Jueves.nombre}}" data-phonetext="{{i.Jueves.abreviacion}}"></span></a></td>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Viernes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Viernes.nombre}}" data-phonetext="{{i.Viernes.abreviacion}}"></span></a></td>
+                    </tr>
+                    {%endfor%}
+                </table>
+
+                {% else %}
+
+
+                <table class="table">
+                    <tr>
+                        <th scope="row"><a href="{% url 'descripcion' objeto='dias' elemento='All' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Modulos" data-phonetext="Mod"></span></a></th>
+                        <th><a href="{% url 'descripcion' objeto='dias' elemento=elemento atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{elemento}}" data-phonetext="{{elemento}}"></span></a></th>
+                    </tr>
+                    {%for i in materia_horario%}
+                    <tr>
+                        <th><a href="{% url 'descripcion' objeto='modulos' elemento=i.modulo.orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{i.modulo.orden}}{{i.modulo.sufijo}} modulo" data-phonetext="{{i.modulo.orden}}{{i.modulo.sufijo}}"></span></a></th>
+                        <td><a href="{% url 'descripcion' objeto='materias' elemento=i.materia.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.materia.nombre}}" data-phonetext="{{i.materia.abreviado}}"></span></a></td>
+                    </tr>
+                    {%endfor%}
+                </table>
+
+                {% endif %}
+                
+            </div>
+        </div>
+    {% endif %}
+
 {% endblock %}

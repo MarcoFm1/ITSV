@@ -1,6 +1,0 @@
-DROP DATABASE IF EXISTS VilladaApp;
-CREATE DATABASE VilladaApp;
-
-USE VilladaApp;
-
-CREATE TABLE 
