@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS VilladaApp;
-CREATE DATABASE VilladaApp;
-
-USE VilladaApp;
-
-CREATE TABLE 
+INSERT INTO Anio (id, fechacreacion, anio) VALUES(
+    1, NOW(), 1
+);
