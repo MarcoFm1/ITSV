@@ -18,6 +18,7 @@ html {
     -webkit-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
     margin-bottom: 200px;
+    border-radius: 10px;
 }
 
 p{
@@ -28,9 +29,10 @@ p{
     margin-top: 20px;
 }
 
+
 #form-title{
     font-size: 30px;
-    background: -webkit-linear-gradient(rgb(230, 13, 13), rgb(3, 1, 161));
+    background: -webkit-linear-gradient(rgb(3, 1, 161), rgb(230, 13, 13));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -52,8 +54,6 @@ p{
     box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
     -webkit-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
     -moz-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
-    
-    
 }
 
 .login_container {
