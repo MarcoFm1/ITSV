@@ -52,6 +52,8 @@
 				</div>
 				<div class="d-flex justify-content-center form_container">
 					<form method="POST" action="">
+                        {% csrf_token %}
+
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -62,7 +64,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-								<input type="password" name="password" placeholder="Contrasena..." class="form-control" >
+								<input type="password" name="password" placeholder="Token de registro..." class="form-control" >
 						</div>
 
 							<div class="d-flex justify-content-center mt-3 login_container">
@@ -72,6 +74,11 @@
 
 				</div>
 		
+                {% for message in messages %}
+                    <h3 id="messages">{{message}}</h3>
+                {% endfor %}
+
+
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						No tenes una cuenta? <a href="{% url 'register' %}" class="ml-2">Resgistrate</a>

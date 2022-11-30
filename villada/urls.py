@@ -22,7 +22,7 @@ from villadApp.views import ITS, LOGIN, REGISTER
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS, name='home'),
+    path("", ITS, name='home'),
     path('login/', LOGIN, name='login'),
     path('register/', REGISTER, name='register'),
 ]
