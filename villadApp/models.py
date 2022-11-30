@@ -122,7 +122,7 @@ class Temario(models.Model):
 class Autorizado(models.Model):
     dni = models.CharField(db_column='DNI', max_length=8)  # Field name made lowercase.
     def __str__(self) -> str:
-        return f'{self.nombre} {self.apellido}, {self.curso.anio}°{self.curso.division}'
+        return f'{self.dni}'
 
 class Profesor(Persona):
     curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
