@@ -2,28 +2,8 @@ body,
 html {
     margin: 0;
     padding: 0;
-    background: #ffffff !important;
+    background: #ffff !important;
 }
-
-.div-donbosco{
-    z-index: 0;
-    margin-top: 170px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-.donbosco{
-    width: 250px;
-    z-index: 0;
-    position: absolute;
-}
-
-.donbosco:hover{
-   
-    filter: drop-shadow(0 100px 100px rgba(0, 20, 199, 0.7)); 
-}
-
 .user_card {
     width: 350px;
     margin-bottom: auto;
@@ -39,8 +19,6 @@ html {
     -moz-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
     margin-bottom: 200px;
     border-radius: 10px;
-    margin-top: 54px;
-    z-index: 1;
 }
 
 p{
@@ -51,15 +29,15 @@ p{
     margin-top: 20px;
 }
 
+
 #form-title{
     font-size: 30px;
-    background: -webkit-linear-gradient(rgb(230, 13, 13), rgb(3, 1, 161));
+    background: -webkit-linear-gradient(rgb(3, 1, 161), rgb(230, 13, 13));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
     font-weight: bold;
 }
-
 .login_btn {
     width: 100%;
     background: #0d0086 !important;
@@ -69,9 +47,7 @@ p{
     box-shadow: none !important;
     outline: 0px !important;
 }
-.login_container {
-    padding: 0 2rem;
-}
+
 
 .login_btn:hover{
     background: #0034c2f3 !important;
@@ -80,6 +56,9 @@ p{
     -moz-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
 }
 
+.login_container {
+    padding: 0 2rem;
+}
 .input-group-text {
     background: #aa0000 !important;
     color: rgb(255, 255, 255) !important;
@@ -92,11 +71,13 @@ p{
     outline: 0px !important;
 }
 
-#messages{
-    background-color: rgb(233, 160, 3);
-    color: #fff;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 15px;
-    border-radius: 40px;
+.div-img-villdada{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+img{
+    object-fit: cover;
+    height: 100px;
 }

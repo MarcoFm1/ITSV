@@ -3,6 +3,12 @@ from django.db import models
 
 # Create your models here.
 # COSAS PARA MARTA LA SECRETARIA DE 150 AÑOS
+
+class Autorizado(models.Model):
+    dni = models.CharField(db_column='DNI', max_length=8)  # Field name made lowercase.
+
+
+
 class Anio(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     anio = models.IntegerField(db_column='ANIO')  # Field name made lowercase.

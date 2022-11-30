@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from .forms import CreateUserForm
 from .models import *
 
 # Create your views here.
@@ -7,8 +9,20 @@ from .models import *
 def ITS(request):
     return render(request,'../templates/villadApp/index.html')
 
-def LOGIN(request):
-    return render(request,'../templates/villadApp/login.html')
+def REGISTER(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Registrado correctamente: ' + user)
+
+            return redirect('login')
+
+    context = {'form': form}
+    return render(request, '../templates/villadApp/register.html', context)
 
 def ASISTENCIA(request):
     return render(request,'../templates/villadApp/asistencia.html')
@@ -71,6 +85,27 @@ def DESCRIPCION(request,objeto,elemento,atributo):
         return render(request,'../templates/villadApp/materias.html',response)
     else:
         return redirect('villada')
+
+def LOGIN(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Nombre o Token incorrectos')
+
+    context = {}
+    return render(request,'../templates/villadApp/login.html', context)
+
+
+def LOGOUT(request):
+    logout(request)
+    return redirect('login')
+
 def CURSOS(request):
     return render(request,'../templates/villadApp/cursos.html')
-
