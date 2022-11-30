@@ -85,6 +85,16 @@ body{
         position: absolute;
         top: 50%;
     }
+    .container-table-dia{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 22%;
+    }
     .table{
         display: block;
         height: auto;
