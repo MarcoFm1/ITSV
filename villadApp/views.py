@@ -2,14 +2,10 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-<<<<<<< HEAD
-from .forms import UserRegistrationForm, UserCreationForm
-=======
 from django.contrib.auth.models import *
 from .decorator import unauthenticated_user, allowed_users, admin
 from .forms import CreateUserForm
 from .models import *
->>>>>>> 93599eeac27dd63cae82514abf5ba2de56e80237
 
 # Create your views here.
 
@@ -20,15 +16,6 @@ def ITS(request):
 def REGISTER(request):
     form = CreateUserForm()
     if request.method == 'POST':
-<<<<<<< HEAD
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            messages.success(request, f'Usuario {username} creado')    
-            return redirect('../templates/villadApp/login.html')
-    else:
-        form = UserCreationForm()
-=======
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
@@ -36,7 +23,6 @@ def REGISTER(request):
 
             group = Group.objects.get(name = 'Alumno')
             user.groups.add(group)
->>>>>>> 93599eeac27dd63cae82514abf5ba2de56e80237
 
             messages.success(request, 'Registrado correctamente: ' + username)
             return redirect('login')
@@ -131,4 +117,4 @@ def LOGOUT(request):
 
 @login_required(login_url='login')
 def CURSOS(request):
-    return render(request,'../templates/villadApp/cursos.html')    
+    return render(request,'../templates/villadApp/cursos.html')  
