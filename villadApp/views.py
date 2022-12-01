@@ -86,6 +86,9 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
+def HOME(request):
+    return render(request,'../templates/villadApp/cursos.html')
+
 def LOGIN(request):
     if request.method == 'POST':
         username = request.POST.get('username')
