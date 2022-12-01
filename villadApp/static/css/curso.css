@@ -26,6 +26,9 @@ table a{
     text-decoration:none;
     color: black;
 }
+th{
+    font-size: 25px;
+}
 tr{
     height: 30px;
 }

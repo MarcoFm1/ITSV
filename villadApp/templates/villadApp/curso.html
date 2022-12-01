@@ -16,16 +16,18 @@
     
     <div class="container-grid-main">
         <table>
+            <th>ALUMNOS</th>
             {% for i in alumnos %}
             <tr>
-                <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviacion}}"></span></a></td>
+                <td><a href="{% url 'profile' tipo='estudiante' dni=i.dni%}"><span class="texto_responsive" data-desktoptext="{{i.apellido}}, {{i.nombre}}" data-phonetext="{{i.apellido}}, {{i.nombre}}"></span></a></td>
             </tr>
             {% endfor %}
         </table>
         <table>
+            <th>MATERIAS</th>
             {% for i in materias %}
             <tr>
-                <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviacion}}"></span></a></td>
+                <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviado}}"></span></a></td>
             </tr>
             {% endfor %}
             

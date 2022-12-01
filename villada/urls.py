@@ -25,7 +25,7 @@ urlpatterns = [
     path('register/', REGISTER, name='register'),
     path('logout/', LOGOUT, name='logout'),
     path('asistencia/', ASISTENCIA),
-    path('profile/<str:tipo>/<str:nombre>/', PROFILE),
+    path('profile/<str:tipo>/<str:dni>/', PROFILE, name='profile'),
     path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION,name='descripcion'),
     path('cursos/', CURSOS, name='cursos'),
     path('curso/<str:tipo>/', CURSO, name='curso'),

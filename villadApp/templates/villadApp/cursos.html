@@ -16,97 +16,19 @@
     </div>
 
     <div class="cursos">
-        <div class="curso1">
-            <button class="primero">1°</button>
-            <div class="curso1-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
+        {%for i in cursos%}
+            <div class="curso{{i}}">
+                <button class="obj{{i}}">{{i}}°</button>
+                <div class="curso{{i}}-content">
+                    <a href="">A</a>
+                    <hr>
+                    <a href="">B</a>
+                    <hr>
+                    <a href="">C</a>
+                </div>
             </div>
-        </div>
-
-        <div class="curso2">
-            <button class="segundo">2°</button>
-            <div class="curso2-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
-            </div>
-        </div>
-
-        <div class="curso3">
-            <button class="tercero">3°</button>
-            <div class="curso3-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
-            </div>
-        </div>
-
-        <div class="curso4">
-            <button class="cuarto">4°</button>
-            <div class="curso4-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
-            </div>
-        </div>
-
-        <div class="curso5">
-            <button class="quinto">5°</button>
-            <div class="curso5-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
-            </div>
-        </div>
-
-        <div class="curso6">
-            <button class="sexto">6°</button>
-            <div class="curso6-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="">C</a>
-            </div>
-        </div>
-
-        <div class="curso7">
-            <button class="septimo">7°</button>
-            <div class="curso7-content">
-            <a href="">A</a>
-            <hr>
-            <a href="">B</a>
-            <hr>
-            <a href="" onclick="Prueba()">C</a>
-            </div>
-        </div>
-
+        {%endfor%}
     </div>
-
-
-
-    {% if indice == 1 %}
-    <p>Hola mundo lindo</p>
-    {% endif %}
-
-    {% if indice == 2 %}
-    <p>Chau mundo cruel</p>
-    {% endif %}
-    
-    
-    
 
     <script src="{%static '/js/cursos.js'%}"></script>
 

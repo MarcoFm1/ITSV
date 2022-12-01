@@ -29,9 +29,9 @@ body{
 }
 
 
-/* PRIMERO */
+/* obj1 */
 
-.primero{
+.obj1{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -42,7 +42,7 @@ body{
     margin: 0 5px;
 }
 
-.primero:hover{
+.obj1:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
@@ -81,9 +81,9 @@ body{
 
 
 
-  /* SEGUNDO */
+  /* obj2 */
 
-  .segundo{
+  .obj2{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -94,7 +94,7 @@ body{
     margin: 0 5px;
 }
 
-.segundo:hover{
+.obj2:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
@@ -133,9 +133,9 @@ body{
 
 
 
-/* TERCERO */
+/* obj3 */
 
-    .tercero{
+    .obj3{
         border: solid 2px black;
         border-radius: 5px;
         height: 60px;
@@ -146,7 +146,7 @@ body{
         margin: 0 5px;
     }
     
-    .tercero:hover{
+    .obj3:hover{
         background-color: rgb(19, 19, 19);
         color: white;
     }
@@ -185,9 +185,9 @@ body{
 
 
 
-/* CUARTO */
+/* obj4 */
 
-  .cuarto{
+  .obj4{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -198,7 +198,7 @@ body{
     margin: 0 5px;
 }
 
-.cuarto:hover{
+.obj4:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
@@ -237,9 +237,9 @@ body{
 
 
 
-/* QUINTO */
+/* obj5 */
 
-  .quinto{
+  .obj5{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -250,7 +250,7 @@ body{
     margin: 0 5px;
 }
 
-.quinto:hover{
+.obj5:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
@@ -289,9 +289,9 @@ body{
 
 
 
-  /* SEXTO */
+  /* obj6 */
 
-.sexto{
+.obj6{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -302,7 +302,7 @@ body{
     margin: 0 5px;
 }
 
-.sexto:hover{
+.obj6:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
@@ -340,9 +340,9 @@ body{
 
 
 
-  /* SEPTIMO */
+  /* obj7 */
 
-.septimo{
+.obj7{
     border: solid 2px black;
     border-radius: 5px;
     height: 60px;
@@ -353,7 +353,7 @@ body{
     margin: 0 5px;
 }
 
-.septimo:hover{
+.obj7:hover{
     background-color: rgb(19, 19, 19);
     color: white;
 }
