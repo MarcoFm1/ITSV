@@ -29,9 +29,9 @@ def ASISTENCIA(request):
     response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
     return render(request,'../templates/villadApp/asistencia.html', response)
 
-def PROFILE(request,tipo,nombre):
+def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
-        estudiante = Alumno.objects.all().get(nombre = nombre)
+        estudiante = Alumno.objects.all().get(dni = dni)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
 
         modulos_materias = {}
@@ -42,7 +42,7 @@ def PROFILE(request,tipo,nombre):
                 modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
         
         
-        response = {'nombre':nombre,'estudiante':estudiante,'rol':tipo.title(),'modulos':modulos_materias}
+        response = {'estudiante':estudiante,'rol':tipo.title(),'modulos':modulos_materias}
         return render(request,'../templates/villadApp/profile.html',response)
     else:
         return redirect('villada')
@@ -88,6 +88,18 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
+def CURSO(request,año,divicion):
+    curso = Curso.objects.all().get(anio__anio = int(año),division__division = divicion)
+    materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso).order_by('materia')
+    alumnos = Alumno.objects.all().filter(curso = curso).order_by('apellido','nombre')
+    materias = []
+    for i in materia_horario:
+        if i.materia not in materias:
+            materias.append(i.materia)
+    
+    response = {'curso':curso,'materias':materias,'alumnos':alumnos}
+    return render(request,'../templates/villadApp/curso.html',response)
+    
 def HOME(request):
     return render(request,'../templates/villadApp/cursos.html')
 
@@ -113,4 +125,6 @@ def LOGOUT(request):
     return redirect('login')
 
 def CURSOS(request):
-    return render(request,'../templates/villadApp/cursos.html')
+    cursos = [1,2,3,4,5,6,7]
+    response = {'cursos':cursos}
+    return render(request,'../templates/villadApp/cursos.html',response)

@@ -1,0 +1,53 @@
+.titulo{
+    margin-top: 20px;
+}
+
+.container-grid-main{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container-grid-menu{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    width: 80%;
+    height: auto;
+}
+table a{
+    text-decoration:none;
+    color: black;
+}
+th{
+    font-size: 25px;
+}
+tr{
+    height: 30px;
+}
+
+td:hover{
+    font-size: 20px;
+    transition: 1s ease;
+}
+
+
+/* RESPONSIVE */
+.texto_responsive:before{
+    content: attr(data-desktoptext);
+  }
+  
+  @media (max-width:600px){
+      .texto_responsive:before {
+          content: attr(data-phonetext);
+      }
+  }
+
+
