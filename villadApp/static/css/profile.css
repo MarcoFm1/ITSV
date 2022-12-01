@@ -108,6 +108,16 @@
 }
 
 /* RESPOSIVE */
+.texto_responsive:before{
+    content: attr(data-desktoptext);
+  }
+  
+  @media (max-width:600px){
+      .texto_responsive:before {
+          content: attr(data-phonetext);
+      }
+  }
+
 
 @media(max-width:950px){
     .principal-main{
