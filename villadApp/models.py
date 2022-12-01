@@ -38,6 +38,7 @@ class DiasSemana(models.Model):
         return self.dia
 # persona
 class Persona(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
     dni = models.CharField(db_column='DNI', max_length=8)  # Field name made lowercase.
     nombre = models.CharField(db_column='NOMBRE', max_length=50, blank=True, null=True)  # Field name made lowercase.
@@ -141,7 +142,7 @@ class Profesor(Persona):
 class Alumno(Persona):
     curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='CURSO', blank=True, null=True)  # Field name made lowercase.
     def __str__(self) -> str:
-        return f'{self.nombre} {self.apellido}, {self.curso.anio}°{self.curso.division}'
+        return f'{self.nombre} {self.apellido} {self.curso.anio}°{self.curso.division}'
     class Meta(Persona.Meta):
         pass
 

@@ -24,6 +24,8 @@ def REGISTER(request):
             group = Group.objects.get(name = 'Alumno')
             user.groups.add(group)
 
+            Alumno.objects.create(user = user)
+
             messages.success(request, 'Registrado correctamente: ' + username)
             return redirect('login')
     context = {'form': form}
@@ -50,9 +52,10 @@ def ASISTENCIA(request):
     return render(request,'../templates/villadApp/asistencia.html')
 
 
-@allowed_users(allowed_roles=['Alumno', 'Encargado'])
+
+@allowed_users(allowed_roles=['Alumno'])
 @login_required(login_url='login')
-def PROFILE(request,tipo,nombre):
+def PROFILE(request, tipo, nombre):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(nombre = nombre)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
@@ -68,6 +71,7 @@ def PROFILE(request,tipo,nombre):
         return render(request,'../templates/villadApp/profile.html',response)
     else:
         return redirect('villada')
+
 
 @login_required(login_url='login')
 def DESCRIPCION(request,objeto,elemento,atributo):
