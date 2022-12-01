@@ -20,11 +20,11 @@
             <div class="curso{{i}}">
                 <button class="obj{{i}}">{{i}}°</button>
                 <div class="curso{{i}}-content">
-                    <a href="">A</a>
+                    <a href="{% url 'curso' año=i divicion='A' %}">A</a>
                     <hr>
-                    <a href="">B</a>
+                    <a href="{% url 'curso' año=i divicion='B' %}">B</a>
                     <hr>
-                    <a href="">C</a>
+                    <a href="{% url 'curso' año=i divicion='C' %}">C</a>
                 </div>
             </div>
         {%endfor%}

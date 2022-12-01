@@ -88,8 +88,8 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
-def CURSO(request,tipo):
-    curso = Curso.objects.all().get(anio__anio = int(tipo[0]),division__division = tipo[1])
+def CURSO(request,año,divicion):
+    curso = Curso.objects.all().get(anio__anio = int(año),division__division = divicion)
     materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso).order_by('materia')
     alumnos = Alumno.objects.all().filter(curso = curso).order_by('apellido','nombre')
     materias = []

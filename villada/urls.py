@@ -28,7 +28,7 @@ urlpatterns = [
     path('profile/<str:tipo>/<str:dni>/', PROFILE, name='profile'),
     path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION,name='descripcion'),
     path('cursos/', CURSOS, name='cursos'),
-    path('curso/<str:tipo>/', CURSO, name='curso'),
+    path('curso/<str:año>/<str:divicion>/', CURSO, name='curso'),
     path('home/', HOME, name='home'),
 ]
 
