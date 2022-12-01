@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .decorator import unauthenticated_user, allowed_users
 from .forms import CreateUserForm
 from .models import *
 
@@ -10,27 +11,41 @@ from .models import *
 def ITS(request):
     return render(request,'../templates/villadApp/index.html')
 
+@unauthenticated_user
 def REGISTER(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Registrado correctamente: ' + user)
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Registrado correctamente: ' + user)
+            return redirect('login')
+    context = {'form': form}
+    return render(request, '../templates/villadApp/register.html', context)
 
-                return redirect('login')
+@unauthenticated_user
+def LOGIN(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Nombre o Token incorrectos')
+    context = {}
+    return render(request,'../templates/villadApp/login.html', context)
 
-        context = {'form': form}
-        return render(request, '../templates/villadApp/register.html', context)
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['Encargado'])
 def ASISTENCIA(request):
     return render(request,'../templates/villadApp/asistencia.html')
 
+
+@allowed_users(allowed_roles=['Alumno', 'Encargado'])
 @login_required(login_url='login')
 def PROFILE(request,tipo,nombre):
     if tipo == 'estudiante':
@@ -88,29 +103,12 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
-def LOGIN(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-
-            user = authenticate(request, username = username, password = password)
-
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-            else:
-                messages.info(request, 'Nombre o Token incorrectos')
-
-        context = {}
-        return render(request,'../templates/villadApp/login.html', context)
 
 
 def LOGOUT(request):
     logout(request)
     return redirect('login')
+
 
 @login_required(login_url='login')
 def CURSOS(request):
