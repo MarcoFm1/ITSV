@@ -28,7 +28,13 @@
 
 {% block content %}
 
-
+{% if messages %}
+{% for message in messages %}
+<div>
+	
+</div>
+{% endfor %}
+{% endif %}
 <!--Register--> 
 <div class="div_prin">
 	<div class="div_containt">
@@ -50,6 +56,7 @@
             {% endfor %}
     {% endfor %}
     <button class='btn_reg' type="submit">UNETE!</button>
+	
 	</div>
 
 	</div>

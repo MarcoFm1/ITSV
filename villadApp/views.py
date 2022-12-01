@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserCreationForm
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, f'Fue creada, te podes loguear')    
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')    
             return redirect('../templates/villadApp/login.html')
     else:
-        form = UserRegistrationForm()
+        form = UserCreationForm()
 
     context = {'form': form}
     return render(request, '../templates/villadApp/register.html', context)

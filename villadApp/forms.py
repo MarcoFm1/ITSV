@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from villadApp import models
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -11,7 +10,6 @@ class UserRegistrationForm(UserCreationForm):
       (3, 'Tutor'),
       
   )
-    role = forms.ChoiceField(choices=CHOICES)
     dni = forms.IntegerField()
     first_name = forms.CharField(max_length=101)
     last_name = forms.CharField(max_length=101)
@@ -20,5 +18,5 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'dni', 'email', 'password1', 'password2', 'role']
+        fields = ['first_name', 'last_name', 'dni', 'email', 'password1', 'password2']
 
