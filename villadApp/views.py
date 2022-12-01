@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CreateUserForm
 from .models import *
@@ -10,23 +11,27 @@ def ITS(request):
     return render(request,'../templates/villadApp/index.html')
 
 def REGISTER(request):
-    form = CreateUserForm()
+    if request.user.is_authenticed:
+        return redirect('home')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Registrado correctamente: ' + user)
 
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Registrado correctamente: ' + user)
+                return redirect('login')
 
-            return redirect('login')
+        context = {'form': form}
+        return render(request, '../templates/villadApp/register.html', context)
 
-    context = {'form': form}
-    return render(request, '../templates/villadApp/register.html', context)
-
+@login_required(login_url='login')
 def ASISTENCIA(request):
     return render(request,'../templates/villadApp/asistencia.html')
 
+@login_required(login_url='login')
 def PROFILE(request,tipo,nombre):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(nombre = nombre)
@@ -44,7 +49,8 @@ def PROFILE(request,tipo,nombre):
         return render(request,'../templates/villadApp/profile.html',response)
     else:
         return redirect('villada')
-    
+
+@login_required(login_url='login')
 def DESCRIPCION(request,objeto,elemento,atributo):
     if objeto == 'materias':
         materia = Materia.objects.all().get(nombre = elemento)
@@ -107,5 +113,6 @@ def LOGOUT(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
 def CURSOS(request):
     return render(request,'../templates/villadApp/cursos.html')

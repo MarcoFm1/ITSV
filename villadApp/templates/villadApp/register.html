@@ -90,6 +90,15 @@
 				</div>
 			</div>
 		</div>
+		<div class="asistencias">
+			<p>Alumno Ausente: 
+				<select name="Alumno">
+					{% for i in lista %}
+						<option value="{{ i }}">{{ i }}</option>
+					{% endfor %}
+				</select> 
+			</p>
+		</div>
 	</div>
 
 	<script>
