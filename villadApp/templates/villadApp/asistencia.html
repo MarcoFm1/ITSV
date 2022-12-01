@@ -16,11 +16,15 @@
         <div class="asistencias">
             <h2><u> REGISTRAR AUSENCIA:</u></h2>
             <p> <h2>Alumnos:</h2>   
-                    <select name="" id="">
-                        {% for i in lista %}
-                            <option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option>
-                        {% endfor %}
-                    </select> 
+                <table>
+                    {% for i in lista %}
+                    <tr>
+                        <td><option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                        
+                    
             </p>
         </div>
         <div class="llegadas_tarde">
