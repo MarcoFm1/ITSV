@@ -97,7 +97,7 @@ def CURSO(request,año,divicion):
         if i.materia not in materias:
             materias.append(i.materia)
     
-    response = {'curso':curso,'materias':materias,'alumnos':alumnos}
+    response = {'curso':curso,'materias':materias,'alumnos':alumnos,'curso_alumnos':f'{curso.anio}{curso.division}'}
     return render(request,'../templates/villadApp/curso.html',response)
     
 def HOME(request):

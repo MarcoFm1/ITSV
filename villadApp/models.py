@@ -92,7 +92,10 @@ class Curso(models.Model):
     division = models.ForeignKey(Division, models.DO_NOTHING, db_column='DIVISION', blank=True, null=True)  # Field name made lowercase.
     especialidad = models.ForeignKey(Especialidad, models.DO_NOTHING, db_column='ESPECIALIDAD', blank=True, null=True)  # Field name made lowercase.
     def __str__(self) -> str:
-        return f'{self.anio} ° {self.division}, {self.especialidad}'
+        if self.especialidad.especialidad == '----':
+            return f'{self.anio} ° {self.division}'
+        else:
+            return f'{self.anio} ° {self.division}, {self.especialidad}'
 
 class Cronograma(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
