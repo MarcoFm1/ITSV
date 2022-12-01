@@ -15,12 +15,12 @@
     <div class="main_row">
         <div class="asistencias">
             <h2><u> REGISTRAR AUSENCIA:</u></h2>
-            <p> <h2>Alumnos:</h2> 
-                {% for i in lista %}
+            <p> <h2>Alumnos:</h2>   
                     <select name="" id="">
-                        <option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option>
-                    </select>
-                {% endfor %}
+                        {% for i in lista %}
+                            <option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option>
+                        {% endfor %}
+                    </select> 
             </p>
         </div>
         <div class="llegadas_tarde">
