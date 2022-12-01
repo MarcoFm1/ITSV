@@ -46,6 +46,6 @@ function animacion(){
     else{
         boton.classList.add('animacionBotonIda');
         boton.classList.remove('animacionBotonVuelta');
-        boton.style.top = '85%';
+        boton.style.top = '92%';
     }
 }
