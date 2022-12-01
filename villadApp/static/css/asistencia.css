@@ -1,10 +1,24 @@
-body{
-    margin: 0;
-    padding: 0;
-}
 .main_column{
+    margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.main_row{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    vertical-align: text-top;
+
+}
+.main_row div{
+    padding: 10px;
+}
+.main_row li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

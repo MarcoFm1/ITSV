@@ -11,7 +11,9 @@ def LOGIN(request):
     return render(request,'../templates/villadApp/login.html')
 
 def ASISTENCIA(request):
-    return render(request,'../templates/villadApp/asistencia.html')
+    cursosEncargado = Curso.objects.all().filter(id=1)
+    response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
+    return render(request,'../templates/villadApp/asistencia.html', response)
 
 def PROFILE(request,tipo,nombre):
     
