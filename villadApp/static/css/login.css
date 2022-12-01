@@ -1,284 +1,102 @@
-.div_prin{
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #ffffff !important;
+}
+
+.div-donbosco{
+    z-index: 0;
+    margin-top: 170px;
     align-items: center;
     justify-content: center;
+    display: flex;
 }
 
-.div_containt{
-    margin-top: 20px;
-	justify-content: center;
-	align-items: center;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
+.donbosco{
+    width: 250px;
+    z-index: 0;
+    position: absolute;
 }
 
-.img_villada{
-	width: 100px;
-  	height: 100px; 
-    object-fit: contain;
+.donbosco:hover{
+   
+    filter: drop-shadow(0 100px 100px rgba(0, 20, 199, 0.7)); 
 }
 
-
-/*Texto Email/password*/
-
-
-
-
-#main {
-    width: max-content;
-    margin: 40px auto;
-    font-family: "Segoe UI", sans-serif;
-    padding: 25px 28px;
-    border-radius: 4px;
-    border: 1px solid #302d2d;
-    animation: popup 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-@keyframes popup {
-    0% {
-        transform: scale(0.2);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.txt_pass, .txt_email{
-	margin-top: 5%;
-	margin-left: 10%;
-}
-
-.txt_ini{
-    font-family: "Segoe UI", sans-serif;
-    color:rgb(51, 51, 51);
-    text-align: center;
-    letter-spacing: 1px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-
-}
-
-h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    color: #e7e7e7;
-}
-
-.div_dont{
-    font-size: 10px;
-    height: 20px;
-    width: 100px;
-    margin-left: 70%;
-    margin-top: 10px;
-    text-align: center;
+.user_card {
+    width: 350px;
+    margin-bottom: auto;
+    background:#ffffff;
+    position: relative;
+    display: flex;
     justify-content: center;
-}
-
-.log {
-    display: block;
-    margin-bottom: 10px;
-	text-align: left;
-}
-label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #a4a4a4;
-}
-.log input {
-    padding: 10px 8px;
-    width: 80%;
-    font-size: 18px;
-    border: none;
-    color: #000000;
-    border-radius: 4px;
-    outline: none;
-    transition: all 0.2s ease;
-	border-style: solid;
-  	border-color: gray;
-	margin-left: 10%;
-    border-radius: 7px;
-
-}
-.log input:hover {
-    background: #c9c9c9;
-}
-.input-parent input:focus {
-    box-shadow: 0px 0px 0px 1px #0087ff;
-}
-
-
-.btn_log{
-  background-color: #fff;
-  border: 0 solid #b1d3ff;
-  border-radius: 10px;
-  box-sizing: border-box;
-  color: #0d172a;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 1rem 1.6rem;
-  text-align: center;
-  text-decoration: none #0d172a solid;
-  text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 0px 8px 2px rgba(166, 175, 195, 0.25);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  border: grey 0.1px solid;
-}
-
-.btn_log:hover {
-  background-color: #3369c0;
-  color: #fff;
-}
-
-
-
-.div_containt2{
-    margin-top: 20px;
-	justify-content: center;
-	align-items: center;
-    padding: 20px;   
-    background: #15004e;
-    border-radius: 20px;
-
-    
-}
-
-.btn_reg{
-    background-color: #fff;
-    border: 0 solid #b1d3ff;
-    border-radius: 10px;
-    box-sizing: border-box;
-    color: #0d172a;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1;
-    padding: 1rem 1.6rem;
-    text-align: center;
-    text-decoration: none #0d172a solid;
-    text-decoration-thickness: auto;
-    transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    box-shadow: 0px 8px 2px rgba(166, 175, 195, 0.25);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    border: grey 0.1px solid;
-    margin-bottom: 20px;
-}
-
-.btn_reg:hover {
-    background-color: rgb(11, 0, 109);
-    color: #fff;
-  }
-  
-  @media (min-width: 768px) {
-    .btn_reg {
-      font-size: 1.125rem;
-      padding: 1rem 2rem;
-    }
-  }
-
-  .txt_pass2, .txt_email2{
-	margin-top: 5%;
-	margin-left: 10%;
-}
-#dni{
-    padding-right: 20%;
-    margin-left: 29%;
+    flex-direction: column;
     padding: 10px;
-    border-radius: 50px;
+    align-items: center;
+    box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 44px 0px rgba(0,0,0,0.75);
+    margin-bottom: 200px;
+    border-radius: 10px;
+    margin-top: 54px;
+    z-index: 1;
 }
 
-
-#btn_dha{
-    color: rgb(146, 0, 0);
-    font-family: "Segoe UI", sans-serif;
-    background: none;
-    border-color: transparent;
-    cursor: pointer;
-
+p{
+    display: none;
 }
 
-.txt_reg{
-    font-family: "Segoe UI", sans-serif;
-    color:white;
-    text-align: center;
-    letter-spacing: 1px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-}
-
-.btn_reg{
+.form_container {
     margin-top: 20px;
 }
 
+#form-title{
+    font-size: 30px;
+    background: -webkit-linear-gradient(rgb(230, 13, 13), rgb(3, 1, 161));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
-.div_containt2{
-    align-items: center;
-    justify-content: center ;
+    font-weight: bold;
 }
 
-.label{
-    margin-top: 5px;
-    padding: 2px;
-    font-size: 20px;
+.login_btn {
+    width: 100%;
+    background: #0d0086 !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
 }
 
-
-
-@media only screen and (max-width: 830px){
-	.div_prin{
-		width: 70%;
-	}
-
+.login_btn:hover{
+    background: #0034c2f3 !important;
+    box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
+    -webkit-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
+    -moz-box-shadow: -2px -2px 7px 1px rgba(127,201,255,0.44);
 }
 
-@media only screen and (min-width: 830px) and (max-width: 1200px){
-	.div_prin{
-		width: 70%;
-	}
-
+.input-group-text {
+    background: #aa0000 !important;
+    color: rgb(255, 255, 255) !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
 }
 
-@media only screen and (min-width: 1201px){
-	.div_prin{
-		width: 26%;
-	}
-
+#messages{
+    background-color: rgb(233, 160, 3);
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 40px;
 }
-
-@media only screen and (max-width: 480px){
-	.div_prin{	
-		width: 85%;	
-	}
-
-	.log{
-		width: 100%;
-	}
-	.div_sec{	
-		width: 85%;	
-	}
-
-}
-
-@media (min-width: 768px) {
-    .btn_log {
-      font-size: 1.125rem;
-      padding: 1rem 2rem;
-    }
-  }
-  

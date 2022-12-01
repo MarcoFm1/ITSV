@@ -15,22 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from villadApp.views import ITS, LOGIN, REGISTER
-
-
-from villadApp import views as user_views
-from django.contrib.auth import views as auth_views
-
-
-
+from villadApp.views import ITS, LOGIN, PROFILE, ASISTENCIA,DESCRIPCION, CURSOS, REGISTER, LOGOUT
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS),
-    path('login/', LOGIN),
-    path('register/', user_views.register, name='register'),
+    path("", ITS, name='home'),
+    path('login/', LOGIN, name='login'),
+    path('register/', REGISTER, name='register'),
+    path('logout/', LOGOUT, name='logout'),
+    path('asistencia/', ASISTENCIA),
+    path('profile/<str:tipo>/<str:nombre>/', PROFILE),
+    path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION,name='descripcion'),
+    path('cursos/', CURSOS)
 
-    path('login/', auth_views.LoginView.as_view(template_name='../templates/villadApp/login.html'), name='login'),
 ]
 

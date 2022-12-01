@@ -1,0 +1,245 @@
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+  }
+
+  .header-materias{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 82vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 0, 107, 0.6),
+        rgba(11, 0, 107, 0.6)
+    ),
+    url(../src/random.jpeg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    }
+    
+    .header-materias h1{
+    display: block;
+    width: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 43%;
+    left: 50%;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    font-weight: bold;
+    
+    }
+    .parrafo-main{
+        position: absolute;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        top: 30%;
+    }
+    .parrafo{
+        display: block;
+        position: relative;
+        top: 43%;
+        text-align: center;
+        color: #ffffff;
+        font-size: 1px;
+        opacity: 0.0;
+        margin: 0px 20%;
+    }
+
+    .header-materias button{
+        display: block;
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 57%;
+        left: 50%;
+        text-align: center;
+        color: #ffffff;
+        background: none;
+        border: solid 1px white;
+        font-weight: bold;
+    }
+
+    .header-materias button:hover{
+        background-color: white;
+        color: black;
+    }
+
+    
+
+    .container-table{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+    }
+    .container-table-dia{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 22%;
+    }
+    .table{
+        display: block;
+        height: auto;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-collapse: collapse;
+        color: black;
+    }
+
+    .table a{
+        text-decoration:none;
+        color: black;
+    }
+    .table tr th{
+        padding: 5px;
+        border: 1px black solid;
+        background-color: rgba(147, 161, 223,1);
+    }
+    .table tr th:hover{
+        background-color: rgba(147, 161, 223,0.8);
+    }
+    
+    .table tr td{
+        padding: 5px;
+        border: 1px black solid;
+        color: black;
+        background-color: rgba(255, 255, 255)
+    }
+    .table tr td:hover{
+        padding: 5px;
+        border: 1px black solid;
+        background-color: rgb(219, 219, 219)
+    }
+
+/* CLASE DE LAS ANIMACIONES */
+.animacionTituloIda{
+    animation: tituloIda 1.5s ease-in;
+}
+.animacionTituloVuelta{
+    animation: tituloVuelta 1s ease-in;
+}
+
+.opacidadParrafoIda{
+    animation: parrafoIda 2s ease-in;
+}
+
+.opacidadParrafoVuelta{
+    animation: parrafoVuelta 0.5s ease-in;
+}
+
+.animacionBotonIda{
+    animation: botonIda 1.5s ease-in;
+}
+
+.animacionBotonVuelta{
+    animation: botonVuelta 1s ease-in;
+}
+
+
+/* ANIMATIONS */
+@keyframes tituloIda {
+    0%   {
+        
+        top: 43%;
+        left: 50%;
+        font-size: 40px;   
+    }
+    100% {
+        
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+}
+@keyframes tituloVuelta {
+    0% {
+        
+        top: 5%;
+        left: 10%;
+        font-size: 20px;
+    }
+    100%   {
+        
+        top: 43%;
+        left: 50%;
+        font-size: 40px;   
+    }
+}
+
+
+@keyframes parrafoIda {
+    0%   {
+        opacity: 0.0;
+        font-size: 1px;
+        
+    }
+    100% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+}
+
+
+@keyframes parrafoVuelta {
+    0% {
+        opacity: 1.0;
+        font-size: 30px;
+    }
+    100%   {
+        opacity: 0.0;
+        font-size: 1px;        
+    }
+}
+
+
+
+@keyframes botonIda {
+    0%   {
+        top: 57%;
+    }
+    100% {
+        top: 85%
+    }
+}
+
+
+@keyframes botonVuelta {
+    0% {
+        top: 85%
+    }
+    100%   {
+        top: 57%;
+    }
+}
+
+
+
+/* RESPONSIVE */
+.texto_responsive:before{
+    content: attr(data-desktoptext);
+  }
+  
+  @media (max-width:600px){
+      .texto_responsive:before {
+          content: attr(data-phonetext);
+      }
+  }
