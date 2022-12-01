@@ -17,7 +17,9 @@
             <h2><u> REGISTRAR AUSENCIA:</u></h2>
             <p> <h2>Alumnos:</h2> 
                 {% for i in lista %}
-                    <li><p>{{ i.nombre }} {{ i.apellido }}:</p> <p>ausente<input type="checkbox"></p></li>
+                    <select name="" id="">
+                        <option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option>
+                    </select>
                 {% endfor %}
             </p>
         </div>

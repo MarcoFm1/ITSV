@@ -25,6 +25,8 @@ def REGISTER(request):
     return render(request, '../templates/villadApp/register.html', context)
 
 def ASISTENCIA(request):
+    if request.method == 'POST':
+        return redirect('asistencia')
     cursosEncargado = Curso.objects.all().filter(id=1)
     response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
     return render(request,'../templates/villadApp/asistencia.html', response)
