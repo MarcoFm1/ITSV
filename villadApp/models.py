@@ -189,7 +189,6 @@ class Falta(models.Model):
     dia = models.DateField(db_column='DIA_FALTA', auto_now_add=True, editable=False)
     llegada = models.BooleanField(db_column='ASISTIO')
     hora_llegada = models.TimeField(db_column='HORA_LLEGADA',null=True)
-    fecha_falta = models.DateField(db_column='FECHA_FALTA')
     class Meta(Persona.Meta):
         pass
 

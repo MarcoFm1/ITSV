@@ -25,18 +25,40 @@ def REGISTER(request):
     context = {'form': form}
     return render(request, '../templates/villadApp/register.html', context)
 
-def ASISTENCIA(request):
+def ASISTENCIA(request,anio_div,mod,tipo):
+    curso = Curso.objects.all().get(anio__anio = int(anio_div[0]),division__division = anio_div[1])
+    materia = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso,dia__dia__dia = datetime.date.today().day, modulo__orden = int(mod))
+    alumnos = Alumno.objects.all().filter(curso = curso)
+
+    
     if request.method == 'POST':
-        return redirect('asistencia')
-    cursosEncargado = Curso.objects.all().filter(id=1)
-    response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
+        if 'pasar' in request.POST:
+            faltas = []
+            for i in alumnos:
+                print(request.POST.get(f'alumno{i.dni}'))
+                if request.POST.get(f'alumno{i.dni}') == 'on': #on / None
+                    faltas.append(i) 
+
+            tipo = 'true'
+            response = {'alumnos':[],'faltas':faltas,'subir':tipo}
+        else:
+            for i in faltas:
+                if request.POST.get(f'llegada{i.dni}') == 'on': #on / None
+                    Falta(alumno = i, materia = materia, dia = datetime.date.today(), llegada = True,hora_llegada = request.POST.get(f'hora{i.dni}')).save()
+            
+            return redirect('villada')
+                
+            
+        
+    else:
+        response = {'alumnos':alumnos,'faltas':[],'subir':tipo}
     return render(request,'../templates/villadApp/asistencia.html', response)
 
 def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(dni = dni)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
-        faltas = Falta.objects.all().filter(alumno = estudiante).order_by('fecha_falta','materia__dia__dia__dia','materia__modulo__orden')
+        faltas = Falta.objects.all().filter(alumno = estudiante).order_by('dia','materia__dia__dia__dia','materia__modulo__orden')
         
         modulos_materias = {}
         for i in materia_horario:
