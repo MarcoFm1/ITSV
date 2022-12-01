@@ -18,6 +18,8 @@ class Command(BaseCommand):
         cronogramasDias = {}
         materiasModulos = {}
         alumnos = {}
+        tutores = {}
+        relacionATs = {}
         nombres = ['Hugo', 'Martín', 'Lucas', 'Mateo', 'Leo', 'Daniel', 'Alejandro', 'Pablo', 'Manuel', 'Álvaro', 'Adrián', 'David', 'Amancio', 'Antonio', 'Baltasar', 'Beltrán', 'Camilo', 'Bruno', 'Marco', 'Álex', 'Oliver', 'Miguel', 'Thiago', 'Marc', 'Carlos', 'Ángel']
 
         for i in range(7):
@@ -1402,11 +1404,23 @@ class Command(BaseCommand):
         materiasModulos['11 7C Viernes'] = MateriaHorario(id=1155, fechacreacion=datetime.date.today(), materia=materias['FIS'], modulo=modulos['11'], dia=cronogramasDias['7C Viernes'])                
         cont = 0
         for i in cursos:
+            
             for x in range(20):
                 cont += 1
                 nombreThisAlumno = random.choice(nombres)
-                alumnos[f'{cont}'] = Alumno(id=cont, fechacreacion=datetime.date.today(), dni=(46000000 + cont), nombre=nombreThisAlumno, apellido=f'{random.choice(nombres)}son', telefono=(3510000000 + cont), email=f'{nombreThisAlumno}{cursos[i].anio}{cursos[i].division}{cont}', curso=cursos[i])
-                        
+                apellidoThisAlumno = random.choice(nombres)
+                alumnos[f'{cont}'] = Alumno(id=cont, fechacreacion=datetime.date.today(), dni=(46000000 + cont), nombre=nombreThisAlumno, apellido=f'{apellidoThisAlumno}son', telefono=(3510000000 + cont), email=f'{apellidoThisAlumno[0]}.{nombreThisAlumno}{cursos[i].anio}{cursos[i].division}{cont}@gmail.edu.ar', curso=cursos[i])
+        cont = 0
+        for i in cursos:
+            for x in range(15):
+                cont += 1
+                nombreThisTutor = random.choice(nombres)
+                apellidoThisTutor = random.choice(nombres)
+                tutores[f'{cont}'] = Tutor(id=cont, fechacreacion=datetime.date.today(), dni=(22000000 + cont), nombre=nombreThisTutor, apellido=f'{apellidoThisTutor}son', telefono=(3510000000 + cont), email=f'{apellidoThisTutor[0]}.{nombreThisTutor}{cont}@gmail.com')          
+
+        for i in alumnos:        
+            relacionATs[f'{i}'] = RelacionAT(id=int(i), fechacreacion=datetime.date.today(), alumno=alumnos[i], tutor=tutores[f'{random.randint(1,314)}'])
+
         for x in anios:
             anios[x].save()
 
@@ -1443,4 +1457,9 @@ class Command(BaseCommand):
         for x in alumnos:
             alumnos[x].save()
 
+        for x in tutores:
+            tutores[x].save()
+        
+        for x in relacionATs:
+            relacionATs[x].save()
         self.stdout.write(self.style.SUCCESS('this worked'))

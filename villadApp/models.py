@@ -141,20 +141,20 @@ class Alumno(Persona):
 
 class Tutor(Persona):
     def __str__(self) -> str:
-        return f'tutor: {self.nombre} {self.apellido}'
+        return f'{self.nombre} {self.apellido}'
     
     class Meta(Persona.Meta):
         pass
 
 class RelacionAT(models.Model):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
-    tutores = models.ForeignKey(Tutor, models.DO_NOTHING, db_column='TUTORES', blank=True, null=True)  # Field name made lowercase.
+    tutor = models.ForeignKey(Tutor, models.DO_NOTHING, db_column='TUTORES', blank=True, null=True)  # Field name made lowercase.
     alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='ALUMNO', blank=True, null=True)  # Field name made lowercase.
     class Meta(Persona.Meta):
         pass
 
     def __str__(self) -> str:
-        return f'{self.tutores} tutor de: {self.alumno}'
+        return f'{self.tutor} tutor de: {self.alumno.nombre}'
 
 class EncargadoFaltas(Persona):
     fechacreacion = models.DateField(db_column="CREACION", auto_now_add=True, editable=False)
