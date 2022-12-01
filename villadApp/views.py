@@ -32,17 +32,16 @@ def ASISTENCIA(request):
 def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(dni = dni)
-        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
-
+        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
+            
         modulos_materias = {}
         for i in materia_horario:
             if i.modulo.orden in modulos_materias:
-                modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = i.materia.nombre 
+                modulos_materias[i.modulo.orden][f'{i.dia.dia}'] = {'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado}
             else:
-                modulos_materias[i.modulo.orden] = {f'{i.dia.dia}':i.materia.nombre}
-        
-        
-        response = {'estudiante':estudiante,'rol':tipo.title(),'modulos':modulos_materias}
+                modulos_materias[i.modulo.orden] = {'orden':i.modulo,f'{i.dia.dia}':{'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado}}
+
+        response = {'estudiante':estudiante,'rol':tipo.title(),'modulos_materia':modulos_materias,'objeto':'dias','elemento':'All','atributo':f'{estudiante.curso.anio}{estudiante.curso.division}'}
         return render(request,'../templates/villadApp/profile.html',response)
     else:
         return redirect('villada')

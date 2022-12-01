@@ -26,102 +26,24 @@
         <div class="principal-menu">
             <table class="table">
                 <tr>
-                  <th scope="row"><a href="{% url 'villada'%}"> Día</a></th>
-                  <th>Lunes</th>
-                  <th>Martes</th>
-                  <th>Miecoles</th>
-                  <th>Jueves</th>
-                  <th>Viernes</th>
+                    <th scope="row"><a href="{% url 'descripcion' objeto='dias' elemento='All' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Modulos" data-phonetext="Mod"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Lunes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Lunes" data-phonetext="Lun"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Martes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Martes" data-phonetext="Mar"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Miercoles' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Miercoles" data-phonetext="Mie"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Jueves' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Jueves" data-phonetext="Jue"></span></a></th>
+                    <th><a href="{% url 'descripcion' objeto='dias' elemento='Viernes' atributo=atributo %}"><span class="texto_responsive" data-desktoptext="Viernes" data-phonetext="Vie"></span></a></th>
                 </tr>
+                {%for i in modulos_materia.values%}
                 <tr>
-                    <th>1er Modulo</th>
-                    <td>{{ modulos.1.Lunes }}</td>
-                    <td>{{ modulos.1.Martes }}</td> 
-                    <td>{{ modulos.1.Miercoles }}</td>   
-                    <td>{{ modulos.1.Jueves }}</td> 
-                    <td>{{ modulos.1.Viernes }}</td>              
-                  </tr>
-                <tr>
-                  <th>2da Hora</th>
-                  <td>{{ modulos.2.Lunes }}</td>
-                  <td>{{ modulos.2.Martes }}</td> 
-                  <td>{{ modulos.2.Miercoles }}</td>   
-                  <td>{{ modulos.2.Jueves }}</td> 
-                  <td>{{ modulos.2.Viernes }}</td>            
-                </tr>              
-                <tr>
-                    <th>3ra Hora</th>
-                    <td>{{ modulos.3.Lunes }}</td>
-                    <td>{{ modulos.3.Martes }}</td> 
-                    <td>{{ modulos.3.Miercoles }}</td>   
-                    <td>{{ modulos.3.Jueves }}</td> 
-                    <td>{{ modulos.3.Viernes }}</td>            
-                </tr> 
-                <tr>
-                    <th>4ta Hora</th>
-                    <td>{{ modulos.4.Lunes }}</td>
-                    <td>{{ modulos.4.Martes }}</td> 
-                    <td>{{ modulos.4.Miercoles }}</td>   
-                    <td>{{ modulos.4.Jueves }}</td> 
-                    <td>{{ modulos.4.Viernes }}</td>            
-                </tr>  
-                <tr>
-                    <th>5ta Hora</th>
-                    <td>{{ modulos.5.Lunes }}</td>
-                    <td>{{ modulos.5.Martes }}</td> 
-                    <td>{{ modulos.5.Miercoles }}</td>   
-                    <td>{{ modulos.5.Jueves }}</td> 
-                    <td>{{ modulos.5.Viernes }}</td>             
-                </tr>  
-                <tr>
-                    <th>6ta Hora</th>
-                    <td>{{ modulos.6.Lunes }}</td>
-                    <td>{{ modulos.6.Martes }}</td> 
-                    <td>{{ modulos.6.Miercoles }}</td>   
-                    <td>{{ modulos.6.Jueves }}</td> 
-                    <td>{{ modulos.6.Viernes }}</td>             
-                </tr>   
-                <tr>
-                    <th>7ma Hora</th>
-                    <td>{{ modulos.7.Lunes }}</td>
-                    <td>{{ modulos.7.Martes }}</td> 
-                    <td>{{ modulos.7.Miercoles }}</td>   
-                    <td>{{ modulos.7.Jueves }}</td> 
-                    <td>{{ modulos.7.Viernes }}</td>            
-                </tr>   
-                <tr>
-                    <th>8va Hora</th>
-                    <td>{{ modulos.8.Lunes }}</td>
-                    <td>{{ modulos.8.Martes }}</td> 
-                    <td>{{ modulos.8.Miercoles }}</td>   
-                    <td>{{ modulos.8.Jueves }}</td> 
-                    <td>{{ modulos.8.Viernes }}</td>        
-                </tr>   
-                <tr>
-                    <th>9na Hora</th>
-                    <td>{{ modulos.9.Lunes }}</td>
-                    <td>{{ modulos.9.Martes }}</td> 
-                    <td>{{ modulos.9.Miercoles }}</td>   
-                    <td>{{ modulos.9.Jueves }}</td> 
-                    <td>{{ modulos.9.Viernes }}</td>            
-                </tr>   
-                <tr>
-                    <th>10ma Hora</th>
-                    <td>{{ modulos.10.Lunes }}</td>
-                    <td>{{ modulos.10.Martes }}</td> 
-                    <td>{{ modulos.10.Miercoles }}</td>   
-                    <td>{{ modulos.10.Jueves }}</td> 
-                    <td>{{ modulos.10.Viernes }}</td>             
-                </tr> 
-                <tr>
-                    <th>11va Hora</th>
-                    <td>{{ modulos.11.Lunes }}</td>
-                    <td>{{ modulos.11.Martes }}</td> 
-                    <td>{{ modulos.11.Miercoles }}</td>   
-                    <td>{{ modulos.11.Jueves }}</td> 
-                    <td>{{ modulos.11.Viernes }}</td>           
-                </tr>            
-              </table>
+                    <th><a href="{% url 'descripcion' objeto='modulos' elemento=i.orden.orden atributo=atributo %}"><span class="texto_responsive" data-desktoptext="{{i.orden.orden}}{{i.orden.sufijo}} modulo" data-phonetext="{{i.orden.orden}}{{i.orden.sufijo}}"></span></a></th>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Lunes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Lunes.nombre}}" data-phonetext="{{i.Lunes.abreviacion}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Martes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Martes.nombre}}" data-phonetext="{{i.Martes.abreviacion}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Miercoles.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Miercoles.nombre}}" data-phonetext="{{i.Miercoles.abreviacion}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Jueves.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Jueves.nombre}}" data-phonetext="{{i.Jueves.abreviacion}}"></span></a></td>
+                    <td><a href="{% url 'descripcion' objeto='materias' elemento=i.Viernes.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.Viernes.nombre}}" data-phonetext="{{i.Viernes.abreviacion}}"></span></a></td>
+                </tr>
+                {%endfor%}
+            </table>
         </div>
     </div>
 
