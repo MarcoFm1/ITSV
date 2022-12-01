@@ -1,0 +1,36 @@
+{% extends "villadApp/base.html" %}
+{% load static %}
+
+{% block title %}
+    Cursos ITSV
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{%static '/css/curso.css'%}">
+{% endblock %}
+
+{% block content %}
+    <div class="titulo">
+        <h1>{{curso}}</h1>
+    </div>
+    
+    <div class="container-grid-main">
+        <table>
+            {% for i in alumnos %}
+            <tr>
+                <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviacion}}"></span></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table>
+            {% for i in materias %}
+            <tr>
+                <td><a href="{% url 'descripcion' objeto='materias' elemento=i.nombre atributo='hdef' %}"><span class="texto_responsive" data-desktoptext="{{i.nombre}}" data-phonetext="{{i.abreviacion}}"></span></a></td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+
+
+{% endblock %}

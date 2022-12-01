@@ -88,6 +88,18 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
+def CURSO(request,tipo):
+    curso = Curso.objects.all().get(anio__anio = int(tipo[0]),division__division = tipo[1])
+    materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso).order_by('materia')
+    alumnos = Alumno.objects.all().filter(curso = curso).order_by('apellido','nombre')
+    materias = []
+    for i in materia_horario:
+        if i.materia not in materias:
+            materias.append(i.materia)
+    
+    response = {'curso':curso,'materias':materias,'alumnos':alumnos}
+    return render(request,'../templates/villadApp/curso.html',response)
+    
 def HOME(request):
     return render(request,'../templates/villadApp/cursos.html')
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from villadApp.views import ITS, LOGIN, PROFILE, ASISTENCIA,DESCRIPCION, CURSOS, REGISTER, LOGOUT,HOME
+from villadApp.views import ITS, LOGIN, PROFILE, ASISTENCIA,DESCRIPCION, CURSOS, CURSO, REGISTER, LOGOUT,HOME
 
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     path('profile/<str:tipo>/<str:nombre>/', PROFILE),
     path('descripcion/<str:objeto>/<str:elemento>/<str:atributo>/', DESCRIPCION,name='descripcion'),
     path('cursos/', CURSOS, name='cursos'),
+    path('curso/<str:tipo>/', CURSO, name='curso'),
     path('home/', HOME, name='home'),
 ]
 
