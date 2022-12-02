@@ -15,10 +15,15 @@
         <h1>CURSOS</h1>
     </div>
 
+    <hr>
+
     <div class="cursos">
         {%for i in cursos%}
             <div class="curso{{i}}">
-                <button class="obj{{i}}">{{i}}°</button>
+                <div class="div-boton">
+                    <button class="obj{{i}}">{{i}}°</button>
+                </div>
+                
                 <div class="curso{{i}}-content">
                     <a href="{% url 'curso' año=i divicion='A' %}">A</a>
                     <hr>
