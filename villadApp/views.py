@@ -39,7 +39,7 @@ def LOGIN(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('villada')
         else:
             messages.info(request, 'Nombre o Token incorrectos')
     context = {}
@@ -144,7 +144,7 @@ def LOGIN(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('villada')
         else:
             messages.info(request, 'Nombre o Token incorrectos')
 
