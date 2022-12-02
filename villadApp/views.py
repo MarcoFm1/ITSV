@@ -14,7 +14,7 @@ faltas = []
 def ITS(request):
     return render(request,'../templates/villadApp/index.html')
 
-@unauthenticated_user
+#@unauthenticated_user
 def REGISTER(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -33,7 +33,7 @@ def REGISTER(request):
     context = {'form': form}
     return render(request, '../templates/villadApp/register.html', context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def LOGIN(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -48,9 +48,8 @@ def LOGIN(request):
     return render(request,'../templates/villadApp/login.html', context)
 
 
-@login_required(login_url='login')
-@admin
-
+#@login_required(login_url='login')
+#@admin
 def ASISTENCIA(request,anio_div,dia,mod,tipo):
     global faltas
 
@@ -93,12 +92,12 @@ def PROFILE(request,tipo,dni):
             
 
 
-@allowed_users(allowed_roles=['Alumno'])
-@login_required(login_url='login')
-def PROFILE(request, tipo, nombre):
+#@allowed_users(allowed_roles=['Alumno'])
+#@login_required(login_url='login')
+def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
-        estudiante = Alumno.objects.all().get(nombre = nombre)
-        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
+        estudiante = Alumno.objects.all().get(dni = dni)
+        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
         faltas = Falta.objects.all().filter(alumno = estudiante).order_by('dia','materia__dia__dia__dia','materia__modulo__orden')
         
         modulos_materias = {}
@@ -193,7 +192,7 @@ def LOGOUT(request):
     return redirect('login')
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def CURSOS(request):
     cursos = [1,2,3,4,5,6,7]
     response = {'cursos':cursos}

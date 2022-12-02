@@ -30,16 +30,7 @@
     <button class="button" onclick="faltas()">FALTAS</button>
 </div>
 
-    <div class="registro-faltas">
-        <h1>Faltas Del Alumno</h1>
-        {% for i in faltas %}
-            <div class="falta">
-                <h2>{{ i.materia_nombre }}</h2>
-                <h2>{{ i.dia }}</h2>
-                <h2>{{ i.falta }}</h2>
-            </div>
-        {% endfor %}
-    </div>
+    
 
     
 <!-- TABLA DE HORARIOS-->
@@ -69,16 +60,14 @@
 <!-- REGISTRO DE FALTAS -->
 <div class="registro-faltas" id="registro-faltas">
     <h1>Faltas Del Alumno</h1>
-    <div class="falta">
-        <h2>{{ 'Materia' }}</h2>
-        <h2>{{ 'Dia-Horario' }}</h2>
-        <h2>{{ 'CantFalta' }}</h2>
-    </div>
-    <div class="falta">
-        <h2>{{ 'Materia' }}</h2>
-        <h2>{{ 'Dia-Horario' }}</h2>
-        <h2>{{ 'CantFalta' }}</h2>
-    </div>
+    {% for i in faltas %}
+        <div class="falta">
+            <h2>{{ i.materia_nombre }}</h2>
+            <h2>{{ i.dia }}</h2>
+            <h2>{{ i.falta }}</h2>
+        </div>
+    {% endfor %}
+    
 </div>
 <script src="{% static '/js/profile.js' %}"></script>
 {% endblock %}
