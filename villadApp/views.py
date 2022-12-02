@@ -5,6 +5,7 @@ from .forms import CreateUserForm
 from .models import *
 import datetime
 
+faltas = []
 # Create your views here.
 
 def ITS(request):
@@ -25,11 +26,14 @@ def REGISTER(request):
     context = {'form': form}
     return render(request, '../templates/villadApp/register.html', context)
 
-def ASISTENCIA(request,anio_div,mod,tipo):
+def ASISTENCIA(request,anio_div,dia,mod,tipo):
+    global faltas
+
     curso = Curso.objects.all().get(anio__anio = int(anio_div[0]),division__division = anio_div[1])
-    materia = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso,dia__dia__dia = datetime.date.today().day, modulo__orden = int(mod))
+    materia = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso,dia__dia__dia = dia, modulo__orden = int(mod))[0]
     alumnos = Alumno.objects.all().filter(curso = curso)
 
+    print(datetime.date.today().day)
     
     if request.method == 'POST':
         if 'pasar' in request.POST:
@@ -42,11 +46,14 @@ def ASISTENCIA(request,anio_div,mod,tipo):
             tipo = 'true'
             response = {'alumnos':[],'faltas':faltas,'subir':tipo}
         else:
+            print(faltas)
             for i in faltas:
                 if request.POST.get(f'llegada{i.dni}') == 'on': #on / None
                     Falta(alumno = i, materia = materia, dia = datetime.date.today(), llegada = True,hora_llegada = request.POST.get(f'hora{i.dni}')).save()
+                else:
+                    Falta(alumno = i, materia = materia, dia = datetime.date.today(), llegada = False,hora_llegada = datetime.datetime.now()).save()
             
-            return redirect('villada')
+            return redirect('asistencia', anio_div = anio_div, dia=dia, mod = mod, tipo = tipo)
                 
             
         
