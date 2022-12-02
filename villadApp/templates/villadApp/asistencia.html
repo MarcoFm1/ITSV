@@ -13,20 +13,47 @@
 {% block content %}
 <div class="main_column">
     <div class="main_row">
+        <form method="POST" action="">
+        {% csrf_token %}
+        
+        {% if subir == 'false' %}
         <div class="asistencias">
             <h2><u> REGISTRAR AUSENCIA:</u></h2>
             <p> <h2>Alumnos:</h2>   
-                    <select name="" id="">
-                        {% for i in lista %}
-                            <option value={{ i.dni }}>{{ i.nombre }} {{ i.apellido }}</option>
-                        {% endfor %}
-                    </select> 
+                
+                    
+
+                    {% for i in alumnos %}
+                    
+                    <p>{{ i.nombre }} {{i.dni}}</p><input type="checkbox" name="alumno{{i.dni}}" placeholder="" class="form-control">
+                    
+                    {% endfor %}
+                    
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn login_btn" type="submit" value="Ingresa" name="pasar">
+                    </div>   
             </p>
         </div>
+        {% endif %}  
+
+        {% if subir == 'true' %}
         <div class="llegadas_tarde">
             <h2><u>ACTUALIZAR AUSENCIA A LLEGADA TARDE:</u></h2>
-        </div>
+                {% for i in faltas %}
+                <p>{{ i.nombre }} {{i.dni}}</p>
+                <p>Llegada</p>
+                <input type="checkbox" name="llegada{{i.dni}}" placeholder="" class="form-control">
+                <p>Hora</p>
+                <input type="time" name="hora{{i.dni}}" placeholder="" class="form-control">
+                {% endfor %}     
+            </div>
+            
+            <div class="d-flex justify-content-center mt-3 login_container">
+                <input class="btn login_btn" type="submit" value="Ingresa" name="subir">
+            </div>
+        {% endif %}            
+        </form>
     </div>
-    <button></button>
+    
 </div>
 {% endblock %}
