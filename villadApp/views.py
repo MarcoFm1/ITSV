@@ -55,12 +55,6 @@ def ASISTENCIA(request):
     response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
     return render(request,'../templates/villadApp/asistencia.html', response)
 
-def PROFILE(request,tipo,dni):
-    if tipo == 'estudiante':
-        estudiante = Alumno.objects.all().get(dni = dni)
-        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
-            
-
 
 @allowed_users(allowed_roles=['Alumno'])
 @login_required(login_url='login')
