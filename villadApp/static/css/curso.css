@@ -1,5 +1,13 @@
+body{
+    background-image: url(../src/libro.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 .titulo{
     margin-top: 20px;
+    width: 50%;
+    margin-bottom: 25px;
 }
 .titulo a{
     text-decoration:none;
@@ -52,6 +60,16 @@ td:hover{
       .texto_responsive:before {
           content: attr(data-phonetext);
       }
+
+      .titulo a{
+        font-size: 25px;
+      }
   }
+
+  @media (max-width:440px){
+    .titulo a{
+      font-size: 20px;
+    }
+}
 
 

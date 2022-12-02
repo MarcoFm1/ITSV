@@ -16,29 +16,26 @@
     {% endblock %}
 </head>
 <body>
-  <header class="header">
-      <nav class="navbar">
-          <a href="{% url 'villada'%}" class="nav-logo">WebDev.</a>
-          <ul class="nav-menu">
-              <li class="nav-item">
-                  <a href="{% url 'login'%}" class="nav-link">Iniciar Sesion</a>
-              </li>
-              <li class="nav-item">
-                  <a href="{% url 'register'%}" class="nav-link">Registrate</a>
-              </li>
-              <li class="nav-item">
-                  <a href="{% url 'cursos'%}" class="nav-link">Cursos</a>
-              </li>
-              <li class="nav-item">
-                  <a href="{% url 'home'%}" class="nav-link">Home</a>
-              </li>
-          </ul>
-          <div class="hamburger">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </div>
-      </nav>
+    <header class="header">
+        <nav class="navbar">
+            <a href="{% url 'villada'%}" class="nav-logo">Villada</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'login'%}" class="nav-link">Iniciar Sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'register'%}" class="nav-link">Registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'cursos'%}" class="nav-link">Cursos</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
   </header>
   
 

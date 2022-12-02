@@ -132,14 +132,14 @@ body{
 
 /* CLASE DE LAS ANIMACIONES */
 .animacionTituloIda{
-    animation: tituloIda 1.5s ease-in;
+    animation: tituloIda 0.5s ease-in;
 }
 .animacionTituloVuelta{
-    animation: tituloVuelta 1s ease-in;
+    animation: tituloVuelta 0.5s ease-in;
 }
 
 .opacidadParrafoIda{
-    animation: parrafoIda 2s ease-in;
+    animation: parrafoIda 0.5s ease-in;
 }
 
 .opacidadParrafoVuelta{
@@ -147,11 +147,11 @@ body{
 }
 
 .animacionBotonIda{
-    animation: botonIda 1.5s ease-in;
+    animation: botonIda 0.5s ease-in;
 }
 
 .animacionBotonVuelta{
-    animation: botonVuelta 1s ease-in;
+    animation: botonVuelta 0.5s ease-in;
 }
 
 

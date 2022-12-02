@@ -1,7 +1,9 @@
 body{
-    background-color: rgb(255, 255, 255);
     font-family: 'Poppins',sans-serif;
     margin: 0;
+    background-image: url(../src/schoolPrincipio.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .titulo{
@@ -28,6 +30,13 @@ body{
     text-align: center;
 }
 
+hr{
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 20px;
+}
+
 
 /* obj1 */
 
@@ -38,7 +47,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -55,7 +64,7 @@ body{
   .curso1-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -90,7 +99,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -107,7 +116,7 @@ body{
   .curso2-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -142,7 +151,7 @@ body{
         width: 60px;
         font-size: 20px;
         font-style: none;
-        background-color: transparent;
+        background-color: #ffffff;
         margin: 0 5px;
     }
     
@@ -159,7 +168,7 @@ body{
       .curso3-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
+        background-color: #ffffff;
         width: 60px;
         border: solid 2px black;
         border-radius: 5px;
@@ -194,7 +203,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -211,7 +220,7 @@ body{
   .curso4-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -246,7 +255,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -263,7 +272,7 @@ body{
   .curso5-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -298,7 +307,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -315,7 +324,7 @@ body{
   .curso6-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -349,7 +358,7 @@ body{
     width: 60px;
     font-size: 20px;
     font-style: none;
-    background-color: transparent;
+    background-color: #ffffff;
     margin: 0 5px;
 }
 
@@ -366,7 +375,7 @@ body{
   .curso7-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     width: 60px;
     border: solid 2px black;
     border-radius: 5px;
@@ -387,6 +396,77 @@ body{
   .curso7:hover .curso7-content {
     display: flex;
     flex-direction: column;
+  }
+
+  @media(max-width: 482px){
+    body{
+      background-image: url(../src/schoolFondo2.jpg);
+      background-position: center;
+    }
+
+    .cursos{
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-left: 10px;
+    }
+
+    .obj1{
+      margin: 5px 0;
+    }
+    .obj2{
+      margin: 5px 0;
+    }
+    .obj3{
+      margin: 5px 0;
+    }
+    .obj4{
+      margin: 5px 0;
+    }
+    .obj5{
+      margin: 5px 0;
+    }
+    .obj6{
+      margin: 5px 0;
+    }
+    .obj7{
+      margin: 5px 0;
+    }
+
+    .curso1-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso2-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso3-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso4-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso5-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso6-content{
+      right: -66px;
+      top: 0px;
+    }
+    .curso7-content{
+      right: -66px;
+      top: 0px;
+    }
+
+    .curso1-content a{
+      align-items: center;
+    }
+
+
   }
 
 
