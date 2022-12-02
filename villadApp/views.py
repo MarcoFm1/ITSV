@@ -55,13 +55,11 @@ def ASISTENCIA(request):
     response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
     return render(request,'../templates/villadApp/asistencia.html', response)
 
-<<<<<<< HEAD
 def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(dni = dni)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
             
-=======
 
 
 @allowed_users(allowed_roles=['Alumno'])
@@ -70,7 +68,6 @@ def PROFILE(request, tipo, nombre):
     if tipo == 'estudiante':
         estudiante = Alumno.objects.all().get(nombre = nombre)
         materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
->>>>>>> login_page
         modulos_materias = {}
         for i in materia_horario:
             if i.modulo.orden in modulos_materias:
@@ -123,7 +120,6 @@ def DESCRIPCION(request,objeto,elemento,atributo):
     else:
         return redirect('villada')
 
-<<<<<<< HEAD
 def CURSO(request,año,divicion):
     curso = Curso.objects.all().get(anio__anio = int(año),division__division = divicion)
     materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso).order_by('materia')
@@ -154,8 +150,6 @@ def LOGIN(request):
 
     context = {}
     return render(request,'../templates/villadApp/login.html', context)
-=======
->>>>>>> login_page
 
 
 def LOGOUT(request):
@@ -165,10 +159,6 @@ def LOGOUT(request):
 
 @login_required(login_url='login')
 def CURSOS(request):
-<<<<<<< HEAD
     cursos = [1,2,3,4,5,6,7]
     response = {'cursos':cursos}
-    return render(request,'../templates/villadApp/cursos.html',response)
-=======
-    return render(request,'../templates/villadApp/cursos.html')  
->>>>>>> login_page
+    return render(request,'../templates/villadApp/cursos.html',response) 
