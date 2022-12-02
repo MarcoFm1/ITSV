@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime 
 
 # Create your models here.
 # COSAS PARA MARTA LA SECRETARIA DE 150 AÑOS
@@ -189,9 +190,21 @@ class Falta(models.Model):
     materia = models.ForeignKey(MateriaHorario, models.DO_NOTHING, db_column='MATERIA', blank=True, null=True)
     dia = models.DateField(db_column='DIA_FALTA', auto_now_add=True, editable=False)
     llegada = models.BooleanField(db_column='ASISTIO')
-    hora_llegada = models.TimeField(db_column='HORA_LLEGADA')
+    hora_llegada = models.TimeField(db_column='HORA_LLEGADA',null=True)
     class Meta(Persona.Meta):
         pass
+
+    
+    def calcular_falta(self, hora_materia = datetime.time(12,12,2)):
+        if self.llegada == False:
+            return '1'
+        if(abs(self.hora_llegada.minute - hora_materia.minute)>=5):
+            return '1/2'
+        else:
+            return '1/4'
+        
+
+        
 
     def __str__(self) -> str:
         return f'dia: {self.dia} alumno: {self.alumno} materia: {self.materia} llego?: {self.llegada} hora llegada: {self.hora_llegada}'

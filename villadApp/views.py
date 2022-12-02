@@ -6,13 +6,15 @@ from django.contrib.auth.models import *
 from .decorator import unauthenticated_user, allowed_users, admin
 from .forms import CreateUserForm
 from .models import *
+import datetime
 
+faltas = []
 # Create your views here.
 
 def ITS(request):
     return render(request,'../templates/villadApp/index.html')
 
-@unauthenticated_user
+#@unauthenticated_user
 def REGISTER(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -31,7 +33,7 @@ def REGISTER(request):
     context = {'form': form}
     return render(request, '../templates/villadApp/register.html', context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def LOGIN(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -46,22 +48,52 @@ def LOGIN(request):
     return render(request,'../templates/villadApp/login.html', context)
 
 
-@login_required(login_url='login')
-@admin
-def ASISTENCIA(request):
+#@login_required(login_url='login')
+#@admin
+def ASISTENCIA(request,anio_div,dia,mod,tipo):
+    global faltas
+
+    curso = Curso.objects.all().get(anio__anio = int(anio_div[0]),division__division = anio_div[1])
+    materia = MateriaHorario.objects.all().filter(dia__cronograma__curso = curso,dia__dia__dia = dia, modulo__orden = int(mod))[0]
+    alumnos = Alumno.objects.all().filter(curso = curso)
+
+    print(datetime.date.today().day)
+    
     if request.method == 'POST':
-        return redirect('asistencia')
-    cursosEncargado = Curso.objects.all().filter(id=1)
-    response = {"lista": Alumno.objects.all().filter(curso = cursosEncargado[0])}
+        if 'pasar' in request.POST:
+            faltas = []
+            for i in alumnos:
+                print(request.POST.get(f'alumno{i.dni}'))
+                if request.POST.get(f'alumno{i.dni}') == 'on': #on / None
+                    faltas.append(i) 
+
+            tipo = 'true'
+            response = {'alumnos':[],'faltas':faltas,'subir':tipo}
+        else:
+            print(faltas)
+            for i in faltas:
+                if request.POST.get(f'llegada{i.dni}') == 'on': #on / None
+                    Falta(alumno = i, materia = materia, dia = datetime.date.today(), llegada = True,hora_llegada = request.POST.get(f'hora{i.dni}')).save()
+                else:
+                    Falta(alumno = i, materia = materia, dia = datetime.date.today(), llegada = False,hora_llegada = datetime.datetime.now()).save()
+            
+            return redirect('asistencia', anio_div = anio_div, dia=dia, mod = mod, tipo = tipo)
+                
+            
+        
+    else:
+        response = {'alumnos':alumnos,'faltas':[],'subir':tipo}
     return render(request,'../templates/villadApp/asistencia.html', response)
 
 
-@allowed_users(allowed_roles=['Alumno'])
-@login_required(login_url='login')
-def PROFILE(request, tipo, nombre):
+#@allowed_users(allowed_roles=['Alumno'])
+#@login_required(login_url='login')
+def PROFILE(request,tipo,dni):
     if tipo == 'estudiante':
-        estudiante = Alumno.objects.all().get(nombre = nombre)
-        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso)
+        estudiante = Alumno.objects.all().get(dni = dni)
+        materia_horario = MateriaHorario.objects.all().filter(dia__cronograma__curso = estudiante.curso).order_by('dia__dia','modulo__orden')
+        faltas = Falta.objects.all().filter(alumno = estudiante).order_by('dia','materia__dia__dia__dia','materia__modulo__orden')
+        
         modulos_materias = {}
         for i in materia_horario:
             if i.modulo.orden in modulos_materias:
@@ -69,7 +101,10 @@ def PROFILE(request, tipo, nombre):
             else:
                 modulos_materias[i.modulo.orden] = {'orden':i.modulo,f'{i.dia.dia}':{'nombre':i.materia.nombre,'abreviacion':i.materia.abreviado}}
 
-        response = {'estudiante':estudiante,'rol':tipo.title(),'modulos_materia':modulos_materias,'objeto':'dias','elemento':'All','atributo':f'{estudiante.curso.anio}{estudiante.curso.division}'}
+        lista_faltas = []
+        for i in faltas:
+            lista_faltas.append({'materia_nombre':i.materia.materia.nombre,'dia':f'{i.materia.dia.dia.dia}: {i.materia.modulo.orden}{i.materia.modulo.sufijo} Modulo','falta':i.calcular_falta(i.materia.modulo.hora_inicio)})
+        response = {'estudiante':estudiante,'faltas':lista_faltas,'rol':tipo.title(),'modulos_materia':modulos_materias,'objeto':'dias','elemento':'All','atributo':f'{estudiante.curso.anio}{estudiante.curso.division}'}
         return render(request,'../templates/villadApp/profile.html',response)
     else:
         return redirect('villada')
@@ -151,7 +186,7 @@ def LOGOUT(request):
     return redirect('login')
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def CURSOS(request):
     cursos = [1,2,3,4,5,6,7]
     response = {'cursos':cursos}
