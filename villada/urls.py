@@ -20,7 +20,7 @@ from villadApp.views import ITS, LOGIN, PROFILE, ASISTENCIA,DESCRIPCION, CURSOS,
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("villada/", ITS, name='villada'),
+    path("", ITS, name='villada'),
     path('login/', LOGIN, name='login'),
     path('register/', REGISTER, name='register'),
     path('logout/', LOGOUT, name='logout'),

@@ -36,5 +36,9 @@
 
 > pip install -U django-jazzmin
 
+**To Register an absence**
+
+> Go to the route 'asistencia/<curso> -> '6C'/<dia> -> 'Viernes'/<modulo> -> '2'/false' 
+
 
 
