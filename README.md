@@ -7,11 +7,33 @@
 
 > Salonia, Agustin
 
+**TO START**
+# Virtualenvs
+> Create a virtualenv
 
+> Run our Requirements.txt file on it.
 
+# Our database
 
-# Instalacion de JAZZMIN
-## Codigo
+> Create a user identified as: 'villada'
+
+> Grant it all permissions
+
+> Create a database called 'VilladaApp'
+
+# To fill our database
+
+> Do a manage.py Migrations and Migrate
+
+> Then type the next line 'python3 manage.py filldatabase' 
+
+# Create a django super user
+
+> ./manage.py createsuperuser
+
+**JAZZMIN instalation**
+# Code
+
 > pip install -U django-jazzmin
 
 
